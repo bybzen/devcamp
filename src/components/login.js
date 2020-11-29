@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import auth from '../firebase'
-// import { Link } from 'react-router-dom'
 
 export class Login extends Component {
 
@@ -11,7 +10,8 @@ export class Login extends Component {
       email: '',
       passowrd: '',
       currentUser: null,
-      message: ''
+      message: '',
+      userID: ''
     }
   }
 
@@ -90,8 +90,7 @@ export class Login extends Component {
           />  </p>
 
           <p></p>
-          {/* <button >LOGIN</button> */}
-          {/* <Link to='/login'><button>go to page 2</button></Link> */}
+          <button >LOGIN</button>
         </form>
 
       </div>
