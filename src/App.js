@@ -1,38 +1,28 @@
 import './App.css';
-import {BrowserRouter, Route} from 'react-router-dom'
-import Navbar from './Navbar'
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route
+} from "react-router-dom";
 import Login from './components/login'
+import Home from './Home';
+
 
 
 
 function App() {
 
-  function goLogin(){
-      
-  }
-
   return (
     <div>
-      <Navbar/>
-      <img src="/images/main.jpg" alt="main.jpg" width="100%" height="10%"/>
-      <p></p>
-      
-      <BrowserRouter>
+      <Router>
+        <Switch>
 
-      
-    
+          <Route exact path="/" component={Home} />
+          <Route path="/login" component={Login} />
 
-      <body className="body">
-        <button type='button' className="button1" onClick={Login}>LOGIN</button>
-        <p></p>
-        <button type='button' className="button1">SUBMIT</button>
-      </body>
-
-      </BrowserRouter>
-      
-      
+        </Switch>        
+      </Router>
     </div>
-
   );
 }
 

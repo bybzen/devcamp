@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
 import auth from '../firebase'
-import {Link} from 'react-router-dom'
+// import { Link } from 'react-router-dom'
 
-export class Login extends Component{
+export class Login extends Component {
 
-    constructor(props){
-        super(props)
+  constructor(props) {
+    super(props)
 
-        this.state = {
-            email: '',
-            passowrd: '',
-            currentUser: null,
-            message: ''
-        }
+    this.state = {
+      email: '',
+      passowrd: '',
+      currentUser: null,
+      message: ''
     }
+  }
 
-    onChange = e => {
-        const { name, value } = e.target
-    
+  onChange = e => {
+    const { name, value } = e.target
+
+    this.setState({
+      [name]: value
+    })
+  }
+
+  onSubmit = e => {
+    e.preventDefault()
+
+    const { email, password } = this.state
+    auth
+      .signInWithEmailAndPassword(email, password)
+      .then(response => {
         this.setState({
-          [name]: value
-        })
-      }
-    
-      onSubmit = e => {
-        e.preventDefault()
-    
-        const { email, password } = this.state
-        auth
-            .signInWithEmailAndPassword(email, password)
-            .then(response => {
-                this.setState({
-                currentUser: response.user
+          currentUser: response.user
         })
       })
       .catch(error => {
@@ -39,29 +39,29 @@ export class Login extends Component{
           message: error.message
         })
       })
-      }
+  }
 
-      componentDidMount() {
-        auth.onAuthStateChanged(user => {
-          if (user) {
-            this.setState({
-              currentUser: user
-            })
-          }
+  componentDidMount() {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        this.setState({
+          currentUser: user
         })
       }
+    })
+  }
 
-      logout = e => {
-        e.preventDefault()
-        auth.signOut().then(response => {
-          this.setState({
-            currentUser: null
-          })
-        })
-      }
-    render(){
-        
-        const { message, currentUser } = this.state
+  logout = e => {
+    e.preventDefault()
+    auth.signOut().then(response => {
+      this.setState({
+        currentUser: null
+      })
+    })
+  }
+  render() {
+
+    const { message, currentUser } = this.state
 
     if (currentUser) {
       return (
@@ -73,31 +73,32 @@ export class Login extends Component{
     }
 
 
-        return(
-            <div>
-                <form onSubmit={this.onSubmit}>
-                    <p> login  </p>
-                    <p> Email <input
-                        type="email"
-                        name="email"
-                        onChange={this.onChange}
-                    />    </p>
-                    
-                    <p> Password <input
-                        type="password"
-                        name="password"
-                        onChange={this.onChange}
-                    />  </p>
-                    
-                    <p></p>
-                    <Link to = '/login'><button>LOGIN</button></Link>
-                </form>
-                
-            </div>
-            
-        );
-    }
-    
+    return (
+      <div>
+        <form onSubmit={this.onSubmit}>
+          <p> login  </p>
+          <p> Email <input
+            type="email"
+            name="email"
+            onChange={this.onChange}
+          />    </p>
+
+          <p> Password <input
+            type="password"
+            name="password"
+            onChange={this.onChange}
+          />  </p>
+
+          <p></p>
+          {/* <button >LOGIN</button> */}
+          {/* <Link to='/login'><button>go to page 2</button></Link> */}
+        </form>
+
+      </div>
+
+    );
+  }
+
 }
 
 export default Login;
