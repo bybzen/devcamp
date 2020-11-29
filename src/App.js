@@ -5,7 +5,7 @@ function App() {
   return (
     <div>
       <Navbar/>
-      <Login/>
+      <img src="./images/index.png" alt="index images"/>
     </div>
   );
 }

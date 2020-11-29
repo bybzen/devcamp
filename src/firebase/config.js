@@ -1,5 +1,5 @@
 const config = {
-  apiKey: "AIzaSyDIHoMTpMPyuIDGIp6yl_f08kLOeRsW86w",
+    apiKey: "AIzaSyDIHoMTpMPyuIDGIp6yl_f08kLOeRsW86w",
     authDomain: "test-predev.firebaseapp.com",
     databaseURL: "https://test-predev.firebaseio.com",
     projectId: "test-predev",
