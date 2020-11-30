@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import { useHistory } from 'react-router-dom'
 import { auth, db} from './firebase'
 import Navbar from './components/Navbar'
 
@@ -29,16 +29,22 @@ const Profile = () => {
     },[auth])
     function logout(){
         auth.signOut()
-        history.replace('/login')
+        history.replace('/')
     }
 
     function goUpload(){
         history.replace('/profile/upload')
     }
 
+    function goStorage(){
+        history.replace('/profile/storage')
+    }
 
+    function goShop(){
+        history.replace('/shop')
+    }
 
-
+    
         return (
             <div>
                 <Navbar />
@@ -50,6 +56,8 @@ const Profile = () => {
                     <p>qr_bank : {user.qr_bank}</p>
                 </div>
                 <button onClick={goUpload}>UPLOAD</button>
+                <button onClick={goStorage}>STORAGE</button>
+                <button onClick={goShop}>SHOP</button>
             </div>
         )   
 }

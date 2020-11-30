@@ -9,6 +9,8 @@ import Login from './Login'
 import Home from './Home'
 import Upload from './Upload'
 import Profile from './Profile'
+import _Storage from './Storage'
+import Shop from './Shop'
 import { auth } from './firebase'
 
 
@@ -18,10 +20,10 @@ function App (){
   useEffect(()=>{
     auth.onAuthStateChanged(function(currentUser) {
       if (!currentUser) {
-        history.replace('/login')
+        history.replace('/')
       }
     })
-  }, [])
+  })
 
   return (
     <div>
@@ -30,6 +32,8 @@ function App (){
           <Route path="/login" component={Login} />
           <Route exact path="/profile" component={Profile} />
           <Route path="/profile/upload" component={Upload} />
+          <Route path="/profile/storage" component={_Storage} />
+          <Route path="/shop" component={Shop} /> 
         </Switch>        
     </div>
   );
