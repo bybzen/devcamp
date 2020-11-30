@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {auth} from '../firebase'
 import { useHistory } from 'react-router-dom';
+import Navbar from './../Navbar'
 
 
 const Login = () => {
@@ -41,6 +42,7 @@ const Login = () => {
 
   return (
     <div>
+      <Navbar />
       <form onSubmit={onSubmit}>
         <p> login  </p>
         <p> Email <input
