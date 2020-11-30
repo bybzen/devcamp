@@ -1,102 +1,67 @@
-import React, { Component } from 'react';
-import auth from '../firebase'
+import React, { useEffect, useState } from 'react';
+import {auth} from '../firebase'
+import { useHistory } from 'react-router-dom';
 
-export class Login extends Component {
 
-  constructor(props) {
-    super(props)
+const Login = () => {
+  const history = useHistory()
+  const [state, setState] = useState({
+    email: '',
+    passowrd: ''
+  })
 
-    this.state = {
-      email: '',
-      passowrd: '',
-      currentUser: null,
-      message: '',
-      userID: ''
-    }
-  }
-
-  onChange = e => {
+  const onChange = e => {
     const { name, value } = e.target
-
-    this.setState({
+    setState({
+      ...state,
       [name]: value
     })
   }
 
-  onSubmit = e => {
+  const onSubmit = e => {
     e.preventDefault()
 
-    const { email, password } = this.state
-    auth
-      .signInWithEmailAndPassword(email, password)
+    const { email, password } = state
+    auth.signInWithEmailAndPassword(email, password)
       .then(response => {
-        this.setState({
-          currentUser: response.user
-        })
+        history.replace('/profile')
       })
       .catch(error => {
-        this.setState({
-          message: error.message
-        })
+        console.log('Error in login', error)
       })
   }
 
-  componentDidMount() {
-    auth.onAuthStateChanged(user => {
-      if (user) {
-        this.setState({
-          currentUser: user
-        })
+  useEffect(()=>{
+    auth.onAuthStateChanged(function(currentUser) {
+      if (currentUser) {
+        history.replace('/profile')
       }
     })
-  }
+  })
 
-  logout = e => {
-    e.preventDefault()
-    auth.signOut().then(response => {
-      this.setState({
-        currentUser: null
-      })
-    })
-  }
-  render() {
+  return (
+    <div>
+      <form onSubmit={onSubmit}>
+        <p> login  </p>
+        <p> Email <input
+          type="email"
+          name="email"
+          onChange={onChange}
+        />    </p>
 
-    const { message, currentUser } = this.state
+        <p> Password <input
+          type="password"
+          name="password"
+          onChange={onChange}
+        />  </p>
 
-    if (currentUser) {
-      return (
-        <div>
-          <p>Hello {currentUser.email}</p>
-          <button onClick={this.logout}>Logout</button>
-        </div>
-      )
-    }
+        <p></p>
+        <button type='submit'>LOGIN</button>
+      </form>
 
+    </div>
 
-    return (
-      <div>
-        <form onSubmit={this.onSubmit}>
-          <p> login  </p>
-          <p> Email <input
-            type="email"
-            name="email"
-            onChange={this.onChange}
-          />    </p>
-
-          <p> Password <input
-            type="password"
-            name="password"
-            onChange={this.onChange}
-          />  </p>
-
-          <p></p>
-          <button >LOGIN</button>
-        </form>
-
-      </div>
-
-    );
-  }
+  );
 
 }
 
