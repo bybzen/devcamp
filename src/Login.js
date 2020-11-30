@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import {auth} from '../firebase'
+import {auth} from './firebase'
 import { useHistory } from 'react-router-dom';
-import Navbar from './../Navbar'
+import Navbar from './components/Navbar'
 
 
 const Login = () => {
@@ -28,7 +28,7 @@ const Login = () => {
         history.replace('/profile')
       })
       .catch(error => {
-        console.log('Error in login', error)
+        alert('Error in login', error)
       })
   }
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory } from 'react-router-dom'
-import { auth, store, db} from './firebase'
-import Navbar from './Navbar'
+import { Link, useHistory } from 'react-router-dom'
+import { auth, db} from './firebase'
+import Navbar from './components/Navbar'
 
 const Profile = () => {
     const [user,setUser] = useState({
@@ -11,7 +11,6 @@ const Profile = () => {
         qr_bank:''
     })
     const history = useHistory()
-    const [file,setFile] = useState(null)
 
     useEffect(()=>{
         auth.onAuthStateChanged(function(currentUser) {
@@ -33,20 +32,9 @@ const Profile = () => {
         history.replace('/login')
     }
 
-    const Choose = event => {
-        const _file = event.target.files[0]
-        if(_file!==null){
-            setFile(_file)
-        }
+    function goUpload(){
+        history.replace('/profile/upload')
     }
-
-    async function Upload() {
-        const file_ref = store.ref(auth.currentUser.uid).child(file.name)
-        await file_ref.put(file)
-        const url = await file_ref.getDownloadURL()
-        console.log(url)
-    }
-
 
 
 
@@ -55,14 +43,13 @@ const Profile = () => {
             <div>
                 <Navbar />
                 <button onClick={logout}>LOGOUT</button>
-                <input type="file" id="file_choose" onChange={Choose}/>
-                <button id="file_upload" onClick={Upload} >UPLOAD</button>
                 <div>
                     <p>uid : {user.uid}</p>
                     <p>name : {user.name}</p>
                     <p>email : {user.email}</p>
                     <p>qr_bank : {user.qr_bank}</p>
                 </div>
+                <button onClick={goUpload}>UPLOAD</button>
             </div>
         )   
 }

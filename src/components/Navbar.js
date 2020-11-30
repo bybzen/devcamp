@@ -5,7 +5,7 @@ function Navbar(){
         <div>
             <header className="Navbar">
                 <body className="Head">
-                    WEIVER
+                    PAPOY
                 </body>
             </header>
         </div>
