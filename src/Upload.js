@@ -1,23 +1,31 @@
 import React from 'react'
-import { auth, db, store} from './firebase'
+import { auth, db, store } from './firebase'
 import Navbar from './components/Navbar'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
+import {
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+    Input
+} from "@chakra-ui/react"
+import './css/App.css'
 
 const Upload = () => {
-    const[subject_code,setSubjectCode] = useState(null)
-    const[subject_name,setSubjectName] = useState()
-    const subjectCode =(e)=>{
+    const [subject_code, setSubjectCode] = useState(null)
+    const [subject_name, setSubjectName] = useState()
+    const subjectCode = (e) => {
         setSubjectCode(e.target.value)
     }
-    const subjectName =(e)=>{
+    const subjectName = (e) => {
         setSubjectName(e.target.value)
     }
-    const [file,setFile] = useState(null)
+    const [file, setFile] = useState(null)
     const history = useHistory()
     const Choose = event => {
         const _file = event.target.files[0]
-        if(_file!==null){
+        if (_file !== null) {
             setFile(_file)
         }
     }
@@ -40,25 +48,43 @@ const Upload = () => {
         alert('Upload Success')
     }
 
-    const Back =()=>{
+    const Back = () => {
         history.replace('/account')
     }
 
-
-    return(
+    return (
         <div>
-            <Navbar/>
-            <p>subject Code</p>
-            <input type='text' onChange={subjectCode} ></input>
-            <br></br>
-            <p>subject name</p>
-            <input type='text' onChange={subjectName} ></input>
+            <Navbar />
+
+            <div class="container-sm">
+
+                <FormControl id="subject-Code">
+                    <FormLabel className="text1"> รหัสวิชา</FormLabel>
+                    <Input className="inputBox2" placeholder="ระบุรหัสวิชา" type='text' onChange={subjectCode} />
+                </FormControl>
+
+                {/* <p>subject Code</p>
+            <input type='text' onChange={subjectCode} ></input> */}
+                <br></br>
+
+                <FormControl id="subject-Name">
+                <FormLabel className="text1"> ชื่อวิชา</FormLabel>
+                <Input className="inputBox2" placeholder="ระบุชื่อวิชา" type='text' onChange={subjectName} />
+            </FormControl>
+
+                {/* <p>subject name</p>
+                <input className="input" type='text' onChange={subjectName} ></input> */}
+
+            </div>
             <br></br><br></br>
-            <input type="file" id="file_choose" onChange={Choose}/>
+
+            <input type="file" id="file_choose" onChange={Choose} />
             <br></br><br></br>
-            <button id="file_upload" onClick={Upload} >UPLOAD</button>
-            <p>                 </p>
-            <button onClick={Back}>Back</button>
+
+            <button className="select_button" id="file_upload" onClick={Upload} >อัปโหลด</button>
+
+
+            <button className="select_button" onClick={Back}>ยกเลิก</button>
         </div>
     )
 }

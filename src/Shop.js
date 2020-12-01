@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar';
 import {auth, db, store} from './firebase'
 import { Link, useHistory } from 'react-router-dom';
+// import './css/App.css'
 
 
 const Shop = () => {
@@ -50,9 +51,8 @@ const Shop = () => {
     return (
         <div>
             <Navbar/>
-            hello
-            <button onClick={goBack}>back</button>
-            <button onClick={show}>show</button>
+
+            
             {alldata.subject_code.map((key)=>{
                 {console.log(key)}
             return(
@@ -61,6 +61,9 @@ const Shop = () => {
             <a className='download' onClick={() => toItem(key)}>detail</a></li>
             )
         })}
+
+<button className="select_button" onClick={goBack}>back</button>
+            <button className="select_button" onClick={show}>show</button>
         </div>
 
         
