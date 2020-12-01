@@ -23,6 +23,7 @@ const Profile = () => {
                     email: snapshot.val().email,
                     uid: auth.currentUser.uid
                 })
+                localStorage.setItem('uid', auth.currentUser.uid)
             })
             }
         })
