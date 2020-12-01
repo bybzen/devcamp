@@ -11,6 +11,8 @@ import Upload from './Upload'
 import Profile from './Profile'
 import _Storage from './Storage'
 import Shop from './Shop'
+import Statement from './Statement'
+import QR from './Qrcode'
 import { auth } from './firebase'
 
 
@@ -34,6 +36,9 @@ function App (){
           <Route path="/profile/upload" component={Upload} />
           <Route path="/profile/storage" component={_Storage} />
           <Route path="/shop" component={Shop} /> 
+          <Route path="/statement" component={Statement} /> 
+          <Route path="/QRCode" component={QR} /> 
+
         </Switch>        
     </div>
   );

@@ -2,6 +2,7 @@ import React from 'react'
 import ShopItem from './ShopItem'
 import main from './images/main.jpg'
 import Navbar from './components/Navbar';
+import './Card.css';
 
 
 const cards = () => {
@@ -17,9 +18,9 @@ const cards = () => {
                     <ul className='cards__items'>
                         <ShopItem
                             src={main}
-                            text='วิชา : '
+                            text='Explore the hidden waterfall deep inside the Amazon Jungle'
                             label='Adventure'
-                            path='/services'
+                            path='/login'
                         />
                         <ShopItem
                             src={main}
@@ -27,8 +28,8 @@ const cards = () => {
                             label='Luxury'
                             path='/services'
                         />
-                    {/* </ul>
-                    <ul className='cards__items'> */}
+                    </ul>
+                    <ul className='cards__items'>
                         <ShopItem
                             src={main}
                             text='วิชา : '

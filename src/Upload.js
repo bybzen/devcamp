@@ -39,7 +39,7 @@ const Upload = () => {
             <p>subject Code</p>
             <input type='text' onChange={subjectCode} ></input>
             <input type="file" id="file_choose" onChange={Choose}/>
-            <button id="file_upload" onClick={Upload} >UPLOAD</button>
+                
             <button onClick={Back}>Back</button>
         </div>
     )

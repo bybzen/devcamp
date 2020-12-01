@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 import { auth, db} from './firebase'
 import Navbar from './components/Navbar'
+import './css/App.css'
 
 const Profile = () => {
     const [user,setUser] = useState({
@@ -48,9 +49,9 @@ const Profile = () => {
         return (
             <div>
                 <Navbar />
-                <button onClick={logout}>LOGOUT</button>
+                
                 <div>
-                    <p>uid : {user.uid}</p>
+                    <p className="text1">uid : {user.uid}</p>
                     <p>name : {user.name}</p>
                     <p>email : {user.email}</p>
                     <p>qr_bank : {user.qr_bank}</p>
@@ -58,6 +59,7 @@ const Profile = () => {
                 <button onClick={goUpload}>UPLOAD</button>
                 <button onClick={goStorage}>STORAGE</button>
                 <button onClick={goShop}>SHOP</button>
+                <button onClick={logout}>LOGOUT</button>
             </div>
         )   
 }
