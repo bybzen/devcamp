@@ -8,7 +8,7 @@ import {
 import Login from './Login'
 import Home from './Home'
 import Upload from './Upload'
-import user from './user'
+import user from './User'
 import _Storage from './Storage'
 import Shop from './Shop'
 import ProductDetail from './ProductDetail'
