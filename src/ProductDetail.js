@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import { auth, store, db } from './firebase'
+import { db } from './firebase'
 
 const ProductDetail = () => {
 
@@ -13,44 +13,32 @@ const ProductDetail = () => {
     const[detail,setDetail] = useState({
         name: '',
         subjectCode: '',
-        uid: '',
-        link: '',
+        author: '',
+        fileUrl: '',
+        description: '',
+        imgUrl: ''
     })
 
     const fetchDetail = async () => {
         db.ref(`/file/${productID}`).once('value', snapshot => {
             const data = snapshot.val()
-            console.log(snapshot)
-            // console.log(data)
+            console.log(data)
             if(data){
                 setDetail({
                     name: data.name,
-                    subjectCode: snapshot.key,
-                    uid: data.uid,
-                    link: data.link
+                    subjectCode: data.subjectCode,
+                    author: data.author,
+                    fileUrl: data.fileUrl,
+                    description: data.description,
+                    imgUrl: data.imgUrl
                 })
-                console.log(detail.uid)
-                fetchUser(data.uid)
             }
         })
     }
 
-    const fetchUser = (uid) =>{
-        db.ref(`/users/${uid}`).on('value', snapshot => {
-            const data = snapshot.val()
-            console.log(data)
-            if(data){
-                setDetail(prevDetail => ({
-                    ...prevDetail,
-                    author: data.name
-                }))
-            }
-        })
-    }
 
     useEffect(()=> {
         fetchDetail()
-        //fetchUser()
     },[])
 
     function goBack(){
@@ -61,14 +49,16 @@ const ProductDetail = () => {
         history.replace(`/shop/${productID}/buy`)
     }
 
-    //console.log(detail.name+':'+detail.subjectCode+':'+detail.uid+':'+detail.link)
-
+    console.log(detail.imgUrl)
     return(
         <div>
             <Navbar/>
-            <p>Subject code {productID} </p>
+            <image src={detail.imgUrl} alt="item_detail_img" width="100" height="100"></image>
+            <p>Subject code {detail.subjectCode} </p>
             <p>Subject name {detail.name}</p>
             <p>Author {detail.author}</p>
+            <p>Description {detail.description}</p>
+
             <br></br>
             <button onClick={goBack}>BACK</button>
             <button onClick={() => goBuy(productID)}>BUY</button>

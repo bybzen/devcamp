@@ -1,13 +1,11 @@
 import React,{ useEffect, useState } from 'react'
-import { auth, db} from './../firebase'
+import {db} from './../firebase'
 import './../App.css'
 
 function UploadList({authCode}){
 
     const[uploadList,setUploadList] = useState({
-        subject_code:[],
-        link:[],
-        Subjectname:[],
+        subject_code:[]
     })
 
     const fetchUpload = async () => {
@@ -17,10 +15,8 @@ function UploadList({authCode}){
             console.log(data)
             if(data){
                 setUploadList({
-                subject_code: Object.keys(data),
-                link: data['link'],
-                subjectname: data['name'],
-                data: data
+                    subject_code: Object.keys(data),
+                    data: data
                 })
             }
         })
@@ -35,8 +31,8 @@ function UploadList({authCode}){
             <p>Upload</p>
             {uploadList.subject_code.map((key, index) => {
         return ( 
-        <li key={index}>{`subject code : ${key}`} Subject name : <p>{uploadList.data[key].name}</p>link : 
-        <a className='download' onClick={() => window.location.href  = uploadList.data[key]['link']}>download</a>
+        <li key={index}>{`subject code : ${key}`} Subject name : {uploadList.data[key].name} link : 
+        <a className='download' onClick={() => window.location.href  = uploadList.data[key].fileUrl}>download</a>
         </li>)
         })
 
