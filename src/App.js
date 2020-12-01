@@ -8,11 +8,11 @@ import {
 import Login from './Login'
 import Home from './Home'
 import Upload from './Upload'
-import Profile from './Profile'
+import Account from './Account'
 import _Storage from './Storage'
 import Shop from './Shop'
-import Statement from './Statement'
-import QR from './Qrcode'
+import ProductDetail from './ProductDetail'
+import Buy from './Buy'
 import { auth } from './firebase'
 
 
@@ -20,8 +20,8 @@ function App (){
   const history = useHistory()
 
   useEffect(()=>{
-    auth.onAuthStateChanged(function(currentUser) {
-      if (!currentUser) {
+    auth.onAuthStateChanged(function(currentAccount) {
+      if (!currentAccount) {
         history.replace('/')
       }
     })
@@ -32,13 +32,12 @@ function App (){
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
-          <Route exact path="/profile" component={Profile} />
-          <Route path="/profile/upload" component={Upload} />
-          <Route path="/profile/storage" component={_Storage} />
-          <Route path="/shop" component={Shop} /> 
-          <Route path="/statement" component={Statement} /> 
-          <Route path="/QRCode" component={QR} /> 
-
+          <Route exact path="/account" component={Account} />
+          <Route path="/account/upload" component={Upload} />
+          <Route path="/account/storage" component={_Storage} />
+          <Route exact path="/shop" component={Shop} /> 
+          <Route exact path="/shop/:productId" component={ProductDetail} /> 
+          <Route path="/shop/:productId/buy" component={Buy} />
         </Switch>        
     </div>
   );

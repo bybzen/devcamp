@@ -26,7 +26,7 @@ const Login = () => {
     const { email, password } = state
     auth.signInWithEmailAndPassword(email, password)
       .then(response => {
-        history.replace('/profile')
+        history.replace('/account')
       })
       .catch(error => {
         alert('Error in login', error)
@@ -36,7 +36,7 @@ const Login = () => {
   useEffect(() => {
     auth.onAuthStateChanged(function (currentUser) {
       if (currentUser) {
-        history.replace('/profile')
+        history.replace('/account')
       }
     })
   })

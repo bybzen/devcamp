@@ -7,18 +7,19 @@ function DownloadList(){
     const[downloadList,setDownloadList] = useState({
         subject_code:[],
         link:[],
-        list:{}
+        Subjectname:[],
     })
 
     const fetchDownload = async () => {
-        db.ref(`/users/${auth.currentUser.uid}/download/`).on('value', snapshot => {
+         db.ref(`/users/${localStorage.getItem('uid')}/download/`).on('value', snapshot => {
             const data = snapshot.val()
             console.log(data)
             if(data){
                 setDownloadList({
-                subject_code: Object.keys(data),
-                link: Object.values(data),
-                list: data
+                    subject_code: Object.keys(data),
+                    link: data['link'],
+                    subjectname: data['name'],
+                    data: data
                 })
             }
         })
@@ -26,17 +27,18 @@ function DownloadList(){
 
     useEffect(()=> {
         fetchDownload()
-    },db.ref(`/users/${auth.currentUser.uid}/download/`))
+    },db.ref(`/users/${localStorage.getItem('uid')}/download/`))
 
     return(
         <div>
-            <p>Download</p>
+            <p>Upload</p>
             {downloadList.subject_code.map((key, index) => {
-                return ( 
-                <li key={index}>{`suject code : ${key}`} link : 
-                <a className='download' onClick={() => window.location.href  = downloadList.link[index]}>download</a>
-                </li>)
-                })
+        return ( 
+        <li key={index}>{`subject code : ${key}`} Subject name : <p>{downloadList.data[key].name}</p>link : 
+        <a className='download' onClick={() => window.location.href  = downloadList.data[key]['link']}>download</a>
+        </li>)
+        })
+
             }   
         </div>
     )

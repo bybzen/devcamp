@@ -2,23 +2,25 @@ import React,{ useEffect, useState } from 'react'
 import { auth, db} from './../firebase'
 import './../App.css'
 
-function UploadList(){
+function UploadList({authCode}){
 
     const[uploadList,setUploadList] = useState({
         subject_code:[],
         link:[],
-        list:{}
+        Subjectname:[],
     })
 
     const fetchUpload = async () => {
-        db.ref(`/users/${auth.currentUser.uid}/upload/`).on('value', snapshot => {
+        const uid = localStorage.getItem('uid')
+        db.ref(`/users/${uid}/upload/`).on('value', snapshot => {
             const data = snapshot.val()
             console.log(data)
             if(data){
                 setUploadList({
                 subject_code: Object.keys(data),
-                link: Object.values(data),
-                list: data
+                link: data['link'],
+                subjectname: data['name'],
+                data: data
                 })
             }
         })
@@ -26,15 +28,15 @@ function UploadList(){
 
     useEffect(()=> {
         fetchUpload()
-    },db.ref(`/users/${auth.currentUser.uid}/upload/`))
+    },db.ref(`/users/${localStorage.getItem('uid')}/upload/`))
 
     return(
         <div>
             <p>Upload</p>
             {uploadList.subject_code.map((key, index) => {
         return ( 
-        <li key={index}>{`suject code : ${key}`} link : 
-        <a className='download' onClick={() => window.location.href  = uploadList.link[index]}>download</a>
+        <li key={index}>{`subject code : ${key}`} Subject name : <p>{uploadList.data[key].name}</p>link : 
+        <a className='download' onClick={() => window.location.href  = uploadList.data[key]['link']}>download</a>
         </li>)
         })
 
