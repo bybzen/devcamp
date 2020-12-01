@@ -12,6 +12,7 @@ import Profile from './Profile'
 import _Storage from './Storage'
 import Shop from './Shop'
 import ProductDetail from './ProductDetail'
+import Buy from './Buy'
 import { auth } from './firebase'
 
 
@@ -35,12 +36,11 @@ function App (){
           <Route path="/profile/upload" component={Upload} />
           <Route path="/profile/storage" component={_Storage} />
           <Route exact path="/shop" component={Shop} /> 
-          <Route path="/shop/:productId" component={ProductDetail} /> 
+          <Route exact path="/shop/:productId" component={ProductDetail} /> 
+          <Route path="/shop/:productId/buy" component={Buy} />
         </Switch>        
     </div>
   );
 }
 
 export default App;
-
-// const {productId} = useParams

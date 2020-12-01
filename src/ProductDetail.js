@@ -20,7 +20,8 @@ const ProductDetail = () => {
     const fetchDetail = async () => {
         db.ref(`/file/${productID}`).once('value', snapshot => {
             const data = snapshot.val()
-            console.log(data)
+            console.log(snapshot)
+            // console.log(data)
             if(data){
                 setDetail({
                     name: data.name,
@@ -28,20 +29,21 @@ const ProductDetail = () => {
                     uid: data.uid,
                     link: data.link
                 })
-                fetchUser()
+                console.log(detail.uid)
+                fetchUser(data.uid)
             }
         })
     }
 
-    const fetchUser = () =>{
-        db.ref(`/users/${detail.uid}`).on('value', snapshot => {
+    const fetchUser = (uid) =>{
+        db.ref(`/users/${uid}`).on('value', snapshot => {
             const data = snapshot.val()
             console.log(data)
             if(data){
-                setDetail({
-                    ...detail,
+                setDetail(prevDetail => ({
+                    ...prevDetail,
                     author: data.name
-                })
+                }))
             }
         })
     }
@@ -55,6 +57,10 @@ const ProductDetail = () => {
         history.replace('/shop')
     }
 
+    function goBuy(productID){
+        history.replace(`/shop/${productID}/buy`)
+    }
+
     //console.log(detail.name+':'+detail.subjectCode+':'+detail.uid+':'+detail.link)
 
     return(
@@ -65,6 +71,7 @@ const ProductDetail = () => {
             <p>Author {detail.author}</p>
             <br></br>
             <button onClick={goBack}>BACK</button>
+            <button onClick={() => goBuy(productID)}>BUY</button>
         </div>
     )
 
