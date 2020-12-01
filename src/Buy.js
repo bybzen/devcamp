@@ -9,34 +9,38 @@ const Buy = () =>{
     const param = useParams()
     const productID = param.productId
     console.log("pro = "+ productID)
-    const [link,setLink] = useState()
-    const [name,setName] = useState()
+    const [item,setItem] = useState()
+
 
     const fetchData = () => db.ref(`/file/${productID}`).once('value', snapshot => {
         const data = snapshot.val()
         console.log(data)
         if(data){
-            setLink(data.link)
-            setName(data.name)
+            setItem({
+                    name: data.name,
+                    subjectCode: data.subjectCode,
+                    author: data.author,
+                    fileUrl: data.fileUrl,
+                    description: data.description,
+                    imgUrl: data.imgUrl,
+                    uid: localStorage.uid
+            })
         }
     })
 
     useEffect(()=>{
         fetchData()
-    })
+    },[])
 
     function goBack(){
         history.replace(`/shop/${productID}`)
     }
 
-    scbService.setCallBack(link)
+    //scbService.setCallBack()
 
     async function buyItem(){
         window.location = (await scbService.createLink(500)).deeplinkUrl
-        db.ref(`/users/${auth.currentUser.uid}/download/${productID}/`).set({
-            link: link,
-            name: name
-        })
+        db.ref(`/users/${localStorage.uid}/download/${productID}/`).set(item)
     }
 
     return(
