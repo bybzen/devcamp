@@ -8,7 +8,7 @@ import {
 import Login from './Login'
 import Home from './Home'
 import Upload from './Upload'
-import user from './User'
+import Account from './Account'
 import _Storage from './Storage'
 import Shop from './Shop'
 import ProductDetail from './ProductDetail'
@@ -20,8 +20,8 @@ function App (){
   const history = useHistory()
 
   useEffect(()=>{
-    auth.onAuthStateChanged(function(currentUser) {
-      if (!currentUser) {
+    auth.onAuthStateChanged(function(currentAccount) {
+      if (!currentAccount) {
         history.replace('/')
       }
     })
@@ -32,9 +32,9 @@ function App (){
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
-          <Route exact path="/user" component={user} />
-          <Route path="/user/upload" component={Upload} />
-          <Route path="/user/storage" component={_Storage} />
+          <Route exact path="/Account" component={Account} />
+          <Route path="/Account/upload" component={Upload} />
+          <Route path="/Account/storage" component={_Storage} />
           <Route exact path="/shop" component={Shop} /> 
           <Route exact path="/shop/:productId" component={ProductDetail} /> 
           <Route path="/shop/:productId/buy" component={Buy} />
