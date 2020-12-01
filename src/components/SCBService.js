@@ -74,6 +74,7 @@ class SCBServices {
                 },
             })
             const callbackUrl = callback_url
+            console.log("callback = "+callbackUrl)
             const deeplinkUrl =
                 scbEndPoint.data.data.deeplinkUrl +
                 '?callback_url=' +

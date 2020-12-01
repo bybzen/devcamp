@@ -36,7 +36,7 @@ const Buy = () =>{
         history.replace(`/shop/${productID}`)
     }
 
-    //scbService.setCallBack()
+    scbService.setCallBack('https://www.facebook.com')
 
     async function buyItem(){
         window.location = (await scbService.createLink(500)).deeplinkUrl
