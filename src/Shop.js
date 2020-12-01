@@ -37,7 +37,7 @@ const Shop = () => {
     const history = useHistory()
 
     function goBack(){
-        history.replace('/profile')
+        history.replace('/account')
     }
 
     function show(){

@@ -32,9 +32,9 @@ function App (){
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
-          <Route exact path="/Account" component={Account} />
-          <Route path="/Account/upload" component={Upload} />
-          <Route path="/Account/storage" component={_Storage} />
+          <Route exact path="/account" component={Account} />
+          <Route path="/account/upload" component={Upload} />
+          <Route path="/account/storage" component={_Storage} />
           <Route exact path="/shop" component={Shop} /> 
           <Route exact path="/shop/:productId" component={ProductDetail} /> 
           <Route path="/shop/:productId/buy" component={Buy} />

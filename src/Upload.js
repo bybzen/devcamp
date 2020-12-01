@@ -41,7 +41,7 @@ const Upload = () => {
     }
 
     const Back =()=>{
-        history.replace('/profile')
+        history.replace('/account')
     }
 
 

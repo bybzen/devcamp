@@ -9,7 +9,7 @@ const Storage = () =>{
    
     const history = useHistory()
     function goback(){
-        history.replace('/profile')
+        history.replace('/account')
     }
 
     return(

@@ -34,11 +34,11 @@ const Profile = () => {
     }
 
     function goUpload(){
-        history.replace('/profile/upload')
+        history.replace('/account/upload')
     }
 
     function goStorage(){
-        history.replace('/profile/storage')
+        history.replace('/account/storage')
     }
 
     function goShop(){
