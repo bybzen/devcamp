@@ -7,7 +7,7 @@ function DownloadList(){
     const[downloadList,setDownloadList] = useState({
         subject_code:[],
         link:[],
-        list:{}
+        Subjectname:[],
     })
 
     const fetchDownload = async () => {
@@ -16,9 +16,10 @@ function DownloadList(){
             console.log(data)
             if(data){
                 setDownloadList({
-                subject_code: Object.keys(data),
-                link: Object.values(data),
-                list: data
+                    subject_code: Object.keys(data),
+                    link: data['link'],
+                    subjectname: data['name'],
+                    data: data
                 })
             }
         })
@@ -30,13 +31,14 @@ function DownloadList(){
 
     return(
         <div>
-            <p>Download</p>
+            <p>Upload</p>
             {downloadList.subject_code.map((key, index) => {
-                return ( 
-                <li key={index}>{`subject code : ${key}`} link : 
-                <a className='download' onClick={() => window.location.href  = downloadList.link[index]}>download</a>
-                </li>)
-                })
+        return ( 
+        <li key={index}>{`subject code : ${key}`} Subject name : <p>{downloadList.data[key].name}</p>link : 
+        <a className='download' onClick={() => window.location.href  = downloadList.data[key]['link']}>download</a>
+        </li>)
+        })
+
             }   
         </div>
     )
