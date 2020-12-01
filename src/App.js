@@ -8,7 +8,7 @@ import {
 import Login from './Login'
 import Home from './Home'
 import Upload from './Upload'
-import Profile from './Profile'
+import user from './user'
 import _Storage from './Storage'
 import Shop from './Shop'
 import ProductDetail from './ProductDetail'
@@ -32,9 +32,9 @@ function App (){
         <Switch>
           <Route exact path="/" component={Home} />
           <Route path="/login" component={Login} />
-          <Route exact path="/profile" component={Profile} />
-          <Route path="/profile/upload" component={Upload} />
-          <Route path="/profile/storage" component={_Storage} />
+          <Route exact path="/user" component={user} />
+          <Route path="/user/upload" component={Upload} />
+          <Route path="/user/storage" component={_Storage} />
           <Route exact path="/shop" component={Shop} /> 
           <Route exact path="/shop/:productId" component={ProductDetail} /> 
           <Route path="/shop/:productId/buy" component={Buy} />
