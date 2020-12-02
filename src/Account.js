@@ -148,7 +148,7 @@ const Profile = () => {
                                     <VStack direction="row" spacing={4} align="center">
 
                                         <Button colorScheme="teal" variant="outline" onClick={goUpload}>อัปโหลด</Button>
-                                        <Button colorScheme="teal" variant="outline" onClick={goStorage}>คลังสรุป</Button>
+                                        <Button colorScheme="teal" variant="outline" onClick={goStorage}>คลังเอกสาร</Button>
                                         <Button colorScheme="teal" variant="outline" onClick={goShop}>ร้านค้า</Button>
                                         <Button colorScheme="teal" variant="outline" onClick={logout}>ออกจากระบบ</Button>
 

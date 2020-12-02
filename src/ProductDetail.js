@@ -8,9 +8,17 @@ import {
     FormErrorMessage,
     FormHelperText,
     Input,
-    Box, Image, AspectRatio,useDisclosure
+    Box, Image, AspectRatio,useDisclosure,
+
+    AlertDialog,
+    AlertDialogBody,
+    AlertDialogFooter,
+    AlertDialogHeader,
+    AlertDialogContent,
+    AlertDialogOverlay,Button,AlertDialogCloseButton
 } from "@chakra-ui/react"
 import { StarIcon } from '@chakra-ui/icons'
+
 
 const ProductDetail = () => {
 
@@ -120,14 +128,14 @@ const ProductDetail = () => {
                     <strong className="price" > 10 บาท</strong>
                 </div>
 
+                {/* <div align="center"> */}
+                    {/* <button className="cancel1" onClick={() => goBuy(productID)}>ซื้อสินค้า</button> */}
+
+                    {/* <button className="cancel2" onClick={goBack}>ย้อนกลับ</button> */}
+                {/* </div> */}
+
                 <div align="center">
-                    <button className="cancel1" onClick={() => goBuy(productID)}>ซื้อสินค้า</button>
-
-                    <button className="cancel2" onClick={goBack}>ย้อนกลับ</button>
-                </div>
-
-                {/* <> */}
-            {/* <Button onClick={onOpen}>ซื้อสินค้า</Button>
+             <button className="cancel1" onClick={onOpen}>ซื้อสินค้า</button>
              <AlertDialog
               motionPreset="slideInBottom"
               leastDestructiveRef={cancelRef}
@@ -138,13 +146,13 @@ const ProductDetail = () => {
               <AlertDialogOverlay />
 
               <AlertDialogContent>
-                <AlertDialogHeader>---</AlertDialogHeader>
+                {/* <AlertDialogHeader>---</AlertDialogHeader> */}
                 <AlertDialogCloseButton />
                 <AlertDialogBody>
-                ยืนคำสั่งซื้อ
+                ยืนยันคำสั่งซื้อ
                 </AlertDialogBody>
                 <AlertDialogFooter>
-                <Button colorScheme="green">
+                <Button colorScheme="green" onClick={() => goBuy(productID)}>
                     ยืนยัน
                   </Button>
                   <Button  ref={cancelRef} onClick={onClose} ml={3}>
@@ -154,7 +162,10 @@ const ProductDetail = () => {
                 </AlertDialogFooter>
               </AlertDialogContent>
             </AlertDialog>
-          </> */}
+
+            <button className="cancel2" onClick={goBack}>ย้อนกลับ</button>
+            </div>
+          
 
 
 
@@ -164,7 +175,7 @@ const ProductDetail = () => {
         
     )
 
-    //
+    
 
 
 }

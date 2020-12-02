@@ -21,7 +21,7 @@ const Storage = () => {
 
     return (
         <div>
-            <Navbar /> 
+            <Navbar />
             <Tabs isFitted variant="enclosed">
                 <TabList mb="1em">
                     <Tab _selected={{ color: "white", bg: "#ff8c00" }} >คลังอัปโหลด</Tab>
@@ -30,16 +30,13 @@ const Storage = () => {
                 <TabPanels>
                     <TabPanel>
 
-                    <Upp />
-
-                    {/* <hr></hr> */}
-                        
+                        <Upp />
 
                     </TabPanel>
                     <TabPanel>
-                        
+
                         <Dww />
-                        {/* <hr></hr> */}
+
                     </TabPanel>
                 </TabPanels>
             </Tabs>
