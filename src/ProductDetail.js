@@ -8,8 +8,9 @@ import {
     FormErrorMessage,
     FormHelperText,
     Input,
-    Box, Image, AspectRatio
+    Box, Image, AspectRatio,useDisclosure
 } from "@chakra-ui/react"
+import { StarIcon } from '@chakra-ui/icons'
 
 const ProductDetail = () => {
 
@@ -58,63 +59,113 @@ const ProductDetail = () => {
     }
 
     console.log(detail.imgUrl)
+
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    const cancelRef = React.useRef()
+
     return (
-        <div>
-            <Navbar />
+        <>
+            <div>
+                <Navbar />
 
-            <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" align="center" pt="5">
-                <AspectRatio maxW="200px" ratio={1}>
-                    <Image src={detail.imgUrl} />
-                </AspectRatio>
 
-                <Box p="6">
-                    <Box d="flex" alignItems="baseline">
+                <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" align="center" pt="5">
+                    <AspectRatio maxW="200px" ratio={1}>
+                        <Image src={detail.imgUrl} />
+                    </AspectRatio>
+
+                    <Box p="6">
+                        <Box d="flex" alignItems="baseline">
+
+                            <Box
+                                color="gray.900"
+                                fontWeight="semibold"
+                                letterSpacing="wide"
+                                fontSize="xs"
+                                textTransform="uppercase"
+                                ml="2"
+                            >
+                            </Box>
+                        </Box>
 
                         <Box
-                            color="gray.900"
+                            mt="1"
                             fontWeight="semibold"
-                            letterSpacing="wide"
-                            fontSize="xs"
-                            textTransform="uppercase"
-                            ml="2"
+                            as="h4"
+                            lineHeight="tight"
+                            isTruncated
                         >
+                            <FormLabel className="text1"> ชื่อวิชา :  {detail.name} </FormLabel>
+                            <FormLabel className="text1"> รหัสวิชา :  {detail.subjectCode} </FormLabel>
+                            <FormLabel className="text1"> ผู้เขียน :  {detail.author} </FormLabel>
+                            <FormLabel className="text1"> รายละเอียด :  {detail.description} </FormLabel>
+                            <FormLabel className="text1"> วันที่อัปโหลด : 02/12/2020  </FormLabel>
+                            <Box d="flex" mt="2" alignItems="center" ml="3">
+                                {Array(5)
+                                    .fill("")
+                                    .map(() => (
+                                        <StarIcon
+                                            color={"yellow.400"}
+                                        />
+                                    ))}
+                            </Box>
+
                         </Box>
                     </Box>
-
-                    <Box
-                        mt="1"
-                        fontWeight="semibold"
-                        as="h4"
-                        lineHeight="tight"
-                        isTruncated
-                    >
-                        <FormLabel className="text1"> ชื่อวิชา :  {detail.name} </FormLabel>
-                        <FormLabel className="text1"> รหัสวิชา :  {detail.subjectCode} </FormLabel>
-
-                        <FormLabel className="text1"> ผู้เขียน :  {detail.author} </FormLabel>
-                        <FormLabel className="text1"> รายละเอียด :  {detail.description} </FormLabel>
-
-
-                    </Box>
-
-
                 </Box>
-            </Box>
 
 
-            <br></br>
-            <div align="center">
-                <strong className="price" > 50 บาท</strong>
+                <br></br>
+                <div align="center">
+                    <strong className="price" > 10 บาท</strong>
+                </div>
+
+                <div align="center">
+                    <button className="cancel1" onClick={() => goBuy(productID)}>ซื้อสินค้า</button>
+
+                    <button className="cancel2" onClick={goBack}>ย้อนกลับ</button>
+                </div>
+
+                {/* <> */}
+            {/* <Button onClick={onOpen}>ซื้อสินค้า</Button>
+             <AlertDialog
+              motionPreset="slideInBottom"
+              leastDestructiveRef={cancelRef}
+              onClose={onClose}
+              isOpen={isOpen}
+              isCentered
+            >
+              <AlertDialogOverlay />
+
+              <AlertDialogContent>
+                <AlertDialogHeader>---</AlertDialogHeader>
+                <AlertDialogCloseButton />
+                <AlertDialogBody>
+                ยืนคำสั่งซื้อ
+                </AlertDialogBody>
+                <AlertDialogFooter>
+                <Button colorScheme="green">
+                    ยืนยัน
+                  </Button>
+                  <Button  ref={cancelRef} onClick={onClose} ml={3}>
+                    ยกเลิก
+                  </Button>
+
+                </AlertDialogFooter>
+              </AlertDialogContent>
+            </AlertDialog>
+          </> */}
+
+
+
             </div>
+        </>
 
-            <div align="center">
-                <button className="cancel1" onClick={() => goBuy(productID)}>ซื้อสินค้า</button>
-
-                <button className="cancel2" onClick={goBack}>ย้อนกลับ</button>
-            </div>
-
-        </div>
+        
     )
+
+    //
+
 
 }
 

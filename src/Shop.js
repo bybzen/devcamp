@@ -71,18 +71,22 @@ const Shop = () => {
                                 </Box>
 
                                 <Box
-                                    mt="1"
                                     fontWeight="semibold"
                                     as="h4"
                                     lineHeight="tight"
                                     isTruncated
                                 >
-                                   {alldata.data[key].subjectCode}<br></br> {alldata.data[key].name}
+                                   รหัสวิชา : {alldata.data[key].subjectCode} <br></br> 
+                                   ชื่อวิชา : {alldata.data[key].name}
                                 </Box>
 
                                 <Box>
-                                    <Box as="span" color="gray.600" fontSize="sm">
-                                      50  บาท
+                                    <Box 
+                                    fontWeight="semibold"
+                                    as="h4"
+                                    lineHeight="tight"
+                                    isTruncated>
+                                      ราคา : 10  บาท
                                     </Box>
                                 </Box>
                             </Box>
