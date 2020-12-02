@@ -70,7 +70,7 @@ const Shop = () => {
 
             {/* <button className="select_button" onClick={goBack}>back</button>
             <button className="select_button" onClick={}>show</button> */}
-            <button className="select_button" onClick={goBack}>back</button>
+            <button className="cancel" onClick={goBack}>back</button>
         </div>
 
 
