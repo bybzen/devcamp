@@ -20,7 +20,7 @@ body {
 .button {
     background-color: #1c1c1c;
     color: white;
-    border-radius: 7px;
+    border-radius: 10px;
     font-size: 20px;
     width: 250px;
     height: 60px;
@@ -73,6 +73,7 @@ body {
     margin: 50px 6px 25px;
     cursor: pointer;
     font-family: 'Kanit', sans-serif;
+    margin-left: 100px;
 }
 
 .cancel:hover {
@@ -98,7 +99,7 @@ body {
     box-sizing: border-box;
     border: none;
     border-bottom: 2px solid black;
-    background-color: #e9ebee;
+    background-color: transparent;
     font-size: 20px;
 }
 
@@ -115,13 +116,15 @@ body {
 
 .text1 {
     font-family: 'Kanit', sans-serif;
-    
     font-size: 30px;
+    padding-left: 20px;
+    padding-right: 20px;
 }
 
 .text2 {
     font-family: 'Kanit', sans-serif;
     font-size: 40px;
+    margin: 20px;
 }
 
 .search {

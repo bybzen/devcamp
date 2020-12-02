@@ -50,8 +50,8 @@ const Login = () => {
 
 
         <form onSubmit={onSubmit}>
-          {/* <fieldset> */}
-            <legend>
+          
+            <legend class="box">
               <p class="text2"><h3>เข้าสู่ระบบ</h3></p>
             </legend>
 
@@ -62,6 +62,7 @@ const Login = () => {
               onChange={onChange}
             />    </p>
 
+            <br></br>
             <p class="text1">รหัสผ่าน <input class="inputBox"
               type="password"
               name="password"
