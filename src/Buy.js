@@ -36,7 +36,7 @@ const Buy = () =>{
         history.replace(`/shop/${productID}`)
     }
 
-    scbService.setCallBack('https://www.facebook.com')
+    scbService.setCallBack('https://papoy.vercel.app/account/storage')
 
     async function buyItem(){
         window.location = (await scbService.createLink(500)).deeplinkUrl

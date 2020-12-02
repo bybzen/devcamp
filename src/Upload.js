@@ -3,13 +3,13 @@ import { auth, db, store } from './firebase'
 import Navbar from './components/Navbar'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
-    import {
-        FormControl,
-        FormLabel,
-        FormErrorMessage,
-        FormHelperText,
-        Input
-    } from "@chakra-ui/react"
+import {
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+    Input
+} from "@chakra-ui/react"
 import './css/App.css'
 
 const Upload = () => {
@@ -100,47 +100,31 @@ const Upload = () => {
         <div>
             <Navbar />
             <br></br>
-            
-            <div class="container-sm">
 
-                <FormControl id="subject-Code">
-                    <FormLabel className="text1"> รหัสวิชา</FormLabel>
-                    <Input className="inputBox2" placeholder="ระบุรหัสวิชา" type='text' onChange={subjectCode} />
-                </FormControl>
+            {/* <div class="container-sm"></div> */}
 
-                {/* <p>subject Code</p>
+            <FormControl id="subject-Code">
+                <FormLabel className="text1"> รหัสวิชา</FormLabel>
+                <Input className="inputBox2" placeholder="ระบุรหัสวิชา" type='text' onChange={subjectCode} />
+            </FormControl>
+
+            {/* <p>subject Code</p>
             <input type='text' onChange={subjectCode} ></input> */}
-                <br></br>
+            <br></br>
 
-                <FormControl id="subject-Name">
-                    <FormLabel className="text1"> ชื่อวิชา</FormLabel>
-                    <Input className="inputBox2" placeholder="ระบุชื่อวิชา" type='text' onChange={subjectName} />
-                </FormControl>
-
-                {/* <p>subject name</p>
-                <input className="input" type='text' onChange={subjectName} ></input> */}
-
-            </div>
+            <FormControl id="subject-Name">
+                <FormLabel className="text1"> ชื่อวิชา</FormLabel>
+                <Input className="inputBox2" placeholder="ระบุชื่อวิชา" type='text' onChange={subjectName} />
+            </FormControl>
             <br></br>
 
             <FormControl id="subject-Code">
-                    <FormLabel className="text1"> รายละเอียด</FormLabel>
-                    <Input className="inputBox2" placeholder="รายละเอียด" type='text' onChange={_description} />
-                </FormControl>
+                <FormLabel className="text1"> รายละเอียด</FormLabel>
+                <Input className="inputBox2" placeholder="รายละเอียด" type='text' onChange={_description} />
+            </FormControl>
 
-            {/* <p>description</p>
-            <input type='text' onChange={_description}></input> */}
-
-            
-
-            {/* <p>subject Code</p>
-            <input type='text' onChange={subjectCode} ></input>
             <br></br>
-            <p>subject name</p>
-            <input type='text' onChange={subjectName} ></input>
-            <br></br> */}
 
-            
             <FormLabel className="text1"> เลือกรูปหน้าปก</FormLabel>
             <input type="file" onChange={UpImage} />
 
@@ -152,12 +136,12 @@ const Upload = () => {
             {/* <input type="file" id="file_choose" onChange={Choose}/> */}
             {/* <br></br><br></br> */}
 
-           
-    
+
+
             <br></br>
-            
+
             <button className="cancel" id="file_upload" onClick={Upload} >อัปโหลด</button>
-            
+
 
             <button className="cancel" onClick={Back}>ยกเลิก</button>
         </div>
