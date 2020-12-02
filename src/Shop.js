@@ -58,7 +58,7 @@ const Shop = () => {
 
 
                         <ol>
-                            <li> {`subject code : ${key}`} {`subject name : ${alldata.data[key].name}`}
+                            <li><img src={alldata.data[key].imgUrl} height="20" width="100" /> {`subject code : ${key}`} {`subject name : ${alldata.data[key].name}`}
                                 <br></br>
                                 <a className='download' onClick={() => toItem(key)}>detail</a>
                             </li>

@@ -108,7 +108,7 @@ body {
     padding: 12px 20px;
     margin: 8px 0;
     box-sizing: border-box;
-    /* border: none; */
+    border: none;
     border-bottom: 2px solid black;
     background-color: #e9ebee;
     font-size: 20px;

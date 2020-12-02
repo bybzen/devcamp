@@ -5,54 +5,45 @@ import Upp from './components/UploadList'
 import Dww from './components/DownloadList'
 import { Button, Nav } from 'react-bootstrap'
 // import { CartFill } from 'react-bootstrap-icons'
+import Navbar from './components/Navbar'
+import { Tabs, TabList, TabPanels, Tab, TabPanel } from "@chakra-ui/react"
 
-const Storage = () =>{
+const Storage = () => {
 
-    const style ={
+    const style = {
         backgroundColor: "#e3e3e3",
     }
-   
+
     const history = useHistory()
-    function goback(){
+    function goback() {
         history.replace('/account')
     }
 
-    return(
+    return (
         <div>
-            <Upp/>
-            <Dww/>
+            <Navbar /> 
+            <Tabs isFitted variant="enclosed">
+                <TabList mb="1em">
+                    <Tab _selected={{ color: "white", bg: "orange.300" }} >คลังอัปโหลด</Tab>
+                    <Tab _selected={{ color: "white", bg: "orange.300" }} >คลังดาวน์โหลด</Tab>
+                </TabList>
+                <TabPanels>
+                    <TabPanel>
 
-            <header style={{ backgroundColor: 'black' }}>
+                    <Upp />
 
+                    {/* <hr></hr> */}
+                        
 
-        {/* First Navbar */}
-        <h1 style={{ margin: 0, color: "white", textAlign: "center"}}> PAPOY. </h1>
-        <hr/>
-        <div style={{
-          background: 'white',
-          color: 'black',
-          padding: '10px 20px',
-          display: 'flex',
-          flexDirection: 'row',
-          justifyContent: 'space-between',
-          alignItems: 'center'
-        }}>
-          <h2>คลัง</h2>
-          {/* <CartFill size={40} /> */}
-        </div>
-        <Nav fill variant="tabs" defaultActiveKey="/home">
-          <Nav.Item>
-            <Nav.Link href="/home">ดาวน์โหลด</Nav.Link>
-           
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/about">อัปโหลด</Nav.Link>
-         
-          </Nav.Item>
-        </Nav>
+                    </TabPanel>
+                    <TabPanel>
+                        
+                        <Dww />
+                        {/* <hr></hr> */}
+                    </TabPanel>
+                </TabPanels>
+            </Tabs>
 
-
-      </header>
 
             <button className="cancel" onClick={goback}>BACK</button>
         </div>
