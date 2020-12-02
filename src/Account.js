@@ -13,8 +13,9 @@ import {
     MenuOptionGroup,
     MenuIcon,
     MenuCommand,
-    MenuDivider, Button
+    MenuDivider, Button, Stack, Center,
 } from "@chakra-ui/react"
+import { Flex } from '@chakra-ui/react'
 
 
 const Profile = () => {
@@ -66,16 +67,19 @@ const Profile = () => {
                 <Navbar />
 
                 <Menu>
-                    <MenuButton  as={Button} bg="#F6AD55" >
+                    <MenuButton as={Button} bg="#F6AD55" >
                         Menu
                 </MenuButton>
+
                     <MenuList>
                         <MenuGroup>
-                        <MenuItem onClick={goStorage} > คลังสรุป </MenuItem>
-                            <MenuItem onClick={goUpload} > อัปโหลด</MenuItem>
                             
-                            <MenuItem onClick={goShop} > ร้านค้า </MenuItem>
-                            <MenuItem onClick={logout} > ออกจากระบบ </MenuItem>
+                                <MenuItem onClick={goStorage} > คลังสรุป </MenuItem>
+                                <MenuItem onClick={goUpload} > อัปโหลด</MenuItem>
+
+                                <MenuItem onClick={goShop} > ร้านค้า </MenuItem>
+                                <MenuItem onClick={logout} > ออกจากระบบ </MenuItem>
+                        
                         </MenuGroup>
                         <MenuDivider />
 
@@ -88,15 +92,29 @@ const Profile = () => {
                     <p>email : {user.email}</p>
                     <p>qr_bank : {user.qr_bank}</p>
                 </div>
-                <button className="select_button" onClick={goUpload}>UPLOAD</button>
-                <button className="select_button" onClick={goStorage}>STORAGE</button>
-                <button className="select_button" onClick={goShop}>SHOP</button>
-                <button className="select_button" onClick={logout}>LOGOUT</button>
+                <Center py={3}>
+
+                <Stack direction="row" spacing={4} align="center">
+                    <Button colorScheme="teal" variant="outline" onClick={goUpload}>
+                        อัปโหลด
+                    </Button>
+                    <Button colorScheme="teal" variant="outline" onClick={goStorage}>
+                        คลังสรุป
+                    </Button>
+                    <Button colorScheme="teal" variant="outline" onClick={goShop}>
+                        ร้านค้า
+                    </Button>
+                    <Button colorScheme="teal" variant="outline" onClick={logout}>
+                        ออกจากระบบ
+                    </Button>
+                </Stack>
+                </Center>
+            
             </div>
 
-            
 
-        
+
+
 
         </>
     )

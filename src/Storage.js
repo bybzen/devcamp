@@ -24,8 +24,8 @@ const Storage = () => {
             <Navbar /> 
             <Tabs isFitted variant="enclosed">
                 <TabList mb="1em">
-                    <Tab _selected={{ color: "white", bg: "orange.300" }} >คลังอัปโหลด</Tab>
-                    <Tab _selected={{ color: "white", bg: "orange.300" }} >คลังดาวน์โหลด</Tab>
+                    <Tab _selected={{ color: "white", bg: "#ff8c00" }} >คลังอัปโหลด</Tab>
+                    <Tab _selected={{ color: "white", bg: "#ff8c00" }} >คลังดาวน์โหลด</Tab>
                 </TabList>
                 <TabPanels>
                     <TabPanel>
