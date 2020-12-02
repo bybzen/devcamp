@@ -6,6 +6,9 @@ import Dww from './components/DownloadList'
 
 const Storage = () =>{
 
+    const style ={
+        backgroundColor: "#e3e3e3",
+    }
    
     const history = useHistory()
     function goback(){
