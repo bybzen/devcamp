@@ -32,26 +32,12 @@ const Buy = () =>{
         fetchData()
     },[])
 
-    function goBack(){
-        history.replace(`/shop/${productID}`)
-    }
-
     scbService.setCallBack('https://papoy.vercel.app/account/storage')
 
     async function buyItem(){
-        window.location = (await scbService.createLink(500)).deeplinkUrl
+        window.location = (await scbService.createLink(10)).deeplinkUrl
         db.ref(`/users/${localStorage.uid}/download/${productID}/`).set(item)
     }
-
-    return(
-        <div>
-            
-            <button > <a className="select_button" onClick={buyItem}>COMFIRM BUY</a></button>
-
-
-            <button className="select_button" onClick={goBack}>BACK</button>
-        </div>
-    )
 }
 
 export default Buy

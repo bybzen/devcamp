@@ -24,8 +24,8 @@ const Storage = () => {
             <Navbar />
             <Tabs isFitted variant="enclosed">
                 <TabList mb="1em">
-                    <Tab _selected={{ color: "white", bg: "#ff8c00" }} >คลังอัปโหลด</Tab>
-                    <Tab _selected={{ color: "white", bg: "#ff8c00" }} >คลังดาวน์โหลด</Tab>
+                    <Tab _selected={{ color: "white", bg: "#f19740" }} >คลังอัปโหลด</Tab>
+                    <Tab _selected={{ color: "white", bg: "#f19740" }} >คลังดาวน์โหลด</Tab>
                 </TabList>
                 <TabPanels>
                     <TabPanel>
@@ -42,7 +42,9 @@ const Storage = () => {
             </Tabs>
 
 
-            <button className="cancel1" onClick={goback}>ย้อนกลับ</button>
+            <div align="right">
+                <button className="cancel1" onClick={goback}>ย้อนกลับ</button>
+            </div>
         </div>
     )
 }

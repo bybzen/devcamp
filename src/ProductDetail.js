@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import { db } from './firebase'
+import scbService from './components/SCBService'
 import {
     FormControl,
     FormLabel,
@@ -47,7 +48,8 @@ const ProductDetail = () => {
                     author: data.author,
                     fileUrl: data.fileUrl,
                     description: data.description,
-                    imgUrl: data.imgUrl
+                    imgUrl: data.imgUrl,
+                    uid: localStorage.uid
                 })
             }
         })
@@ -62,14 +64,16 @@ const ProductDetail = () => {
         history.replace('/shop')
     }
 
-    function goBuy(productID) {
-        history.replace(`/shop/${productID}/buy`)
-    }
-
     console.log(detail.imgUrl)
 
     const { isOpen, onOpen, onClose } = useDisclosure()
     const cancelRef = React.useRef()
+
+    scbService.setCallBack('https://papoy.vercel.app/account/storage')
+    async function buyItem(){
+        window.location = (await scbService.createLink(10)).deeplinkUrl
+        db.ref(`/users/${localStorage.uid}/download/${productID}/`).set(detail)
+    }
 
     return (
         <>
@@ -152,7 +156,7 @@ const ProductDetail = () => {
                 ยืนยันคำสั่งซื้อ
                 </AlertDialogBody>
                 <AlertDialogFooter>
-                <Button colorScheme="green" onClick={() => goBuy(productID)}>
+                <Button colorScheme="green" onClick={buyItem}>
                     ยืนยัน
                   </Button>
                   <Button  ref={cancelRef} onClick={onClose} ml={3}>
