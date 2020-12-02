@@ -60,7 +60,7 @@ const ProductDetail = () => {
     return(
         <div>
             <Navbar/>
-            <image src={detail.imgUrl} alt="item_detail_img" width="100" height="100"></image>
+            <img src={detail.imgUrl} alt="item_detail_img" width="100" height="100"></img>
 
             <FormLabel className="text1"> รหัสวิชา :  {detail.subjectCode} </FormLabel>
             <FormLabel className="text1"> ชื่อวิชา :  {detail.name} </FormLabel>
