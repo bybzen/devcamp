@@ -22,7 +22,8 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
-    VStack
+    VStack,
+    StackDivider
 } from "@chakra-ui/react"
 
 import {
@@ -158,7 +159,7 @@ const Profile = () => {
                 </Box>
 
                 {sizes.map((size) => (
-                    <Button
+                    <Button className="menu"
                         onClick={() => handleClick(size)}
                         key={size}
                         m={4}
@@ -166,21 +167,23 @@ const Profile = () => {
                 ))}
 
                 <Drawer onClose={onClose} isOpen={isOpen} size={size}>
-                    <DrawerOverlay>
+                    <DrawerOverlay w="lg">
                         <DrawerContent>
-                            <DrawerHeader>
-                                <Center py={3}>
-                                    <VStack direction="row" spacing={4} align="center">
-                                        <Button colorScheme="teal" variant="outline" onClick={goUpload}>อัปโหลด</Button>
-                                        
-                                        <Button colorScheme="teal" variant="outline" onClick={goStorage}>คลังสรุป</Button>
-                                        <Button colorScheme="teal" variant="outline" onClick={goShop}>ร้านค้า</Button>
-                                        <Button colorScheme="teal" variant="outline" onClick={logout}>ออกจากระบบ</Button>
+                            <DrawerHeader> 
+                                
+                            </DrawerHeader>
+                            <DrawerBody maxW="lg" px={0}>
+                            <Center py={3}>
+                                    <VStack divider={<StackDivider borderColor="grey.200" />} w="lg" align="stretch" direction="row" spacing={4} >
+
+                                        <Button bg="white" px={0} border="0px" colorScheme="black" variant="outline" onClick={goUpload}>อัปโหลด</Button>
+                                        <Button  border="0px" colorScheme="black" variant="outline" onClick={goStorage}>คลังสรุป</Button>
+                                        <Button  border="0px" colorScheme="black" variant="outline" onClick={goShop}>ร้านค้า</Button>
+                                        <Button  border="0px" colorScheme="black" variant="outline" onClick={logout}>ออกจากระบบ</Button>
+                                   
                                     </VStack>
                                 </Center>
 
-                            </DrawerHeader>
-                            <DrawerBody>
                                 {size === "full"
                                     ? `You're trapped 😆 , refresh the page to leave or press 'Esc' key.`
                                     : null}
