@@ -16,7 +16,7 @@ const Storage = () =>{
         <div>
             <Upp/>
             <Dww/>
-            <button onClick={goback}>BACK</button>
+            <button className="cancel" onClick={goback}>BACK</button>
         </div>
     )
 }

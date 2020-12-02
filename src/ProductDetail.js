@@ -2,6 +2,13 @@ import React, { useState, useEffect } from 'react'
 import { useHistory, useParams } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import { db } from './firebase'
+import {
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+    Input
+} from "@chakra-ui/react"
 
 const ProductDetail = () => {
 
@@ -54,14 +61,27 @@ const ProductDetail = () => {
         <div>
             <Navbar/>
             <image src={detail.imgUrl} alt="item_detail_img" width="100" height="100"></image>
-            <p>Subject code {detail.subjectCode} </p>
+
+            <FormLabel className="text1"> รหัสวิชา :  {detail.subjectCode} </FormLabel>
+            <FormLabel className="text1"> ชื่อวิชา :  {detail.name} </FormLabel>
+            <FormLabel className="text1"> โดย :  {detail.author} </FormLabel>
+            <FormLabel className="text1"> รายละเอียด :  {detail.description} </FormLabel>
+
+
+
+
+            {/* <p>Subject code {detail.subjectCode} </p>
             <p>Subject name {detail.name}</p>
             <p>Author {detail.author}</p>
-            <p>Description {detail.description}</p>
+            <p>Description {detail.description}</p> */}
 
+            
+            <button className="cancel" onClick={() => goBuy(productID)}>BUY</button>
+            
             <br></br>
-            <button onClick={goBack}>BACK</button>
-            <button onClick={() => goBuy(productID)}>BUY</button>
+
+            <button className="cancel" onClick={goBack}>BACK</button>
+            
         </div>
     )
 

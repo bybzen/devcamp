@@ -45,9 +45,11 @@ const Buy = () =>{
 
     return(
         <div>
-            <p></p>
-            <a onClick={buyItem}>COMFIRM BUY</a>
-            <button onClick={goBack}>BACK</button>
+            
+            <button > <a className="select_button" onClick={buyItem}>COMFIRM BUY</a></button>
+
+
+            <button className="select_button" onClick={goBack}>BACK</button>
         </div>
     )
 }

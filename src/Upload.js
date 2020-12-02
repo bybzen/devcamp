@@ -3,13 +3,13 @@ import { auth, db, store } from './firebase'
 import Navbar from './components/Navbar'
 import { useHistory } from 'react-router-dom'
 import { useState } from 'react'
-import {
-    FormControl,
-    FormLabel,
-    FormErrorMessage,
-    FormHelperText,
-    Input
-} from "@chakra-ui/react"
+    import {
+        FormControl,
+        FormLabel,
+        FormErrorMessage,
+        FormHelperText,
+        Input
+    } from "@chakra-ui/react"
 import './css/App.css'
 
 const Upload = () => {
@@ -156,10 +156,10 @@ const Upload = () => {
     
             <br></br>
             
-            <button className="select_button" id="file_upload" onClick={Upload} >อัปโหลด</button>
+            <button className="cancel" id="file_upload" onClick={Upload} >อัปโหลด</button>
             
 
-            <button className="select_button" onClick={Back}>ยกเลิก</button>
+            <button className="cancel" onClick={Back}>ยกเลิก</button>
         </div>
     )
 }
