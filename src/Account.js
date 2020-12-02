@@ -22,6 +22,7 @@ import {
     DrawerOverlay,
     DrawerContent,
     DrawerCloseButton,
+    VStack
 } from "@chakra-ui/react"
 
 import {
@@ -169,13 +170,13 @@ const Profile = () => {
                         <DrawerContent>
                             <DrawerHeader>
                                 <Center py={3}>
-                                    <Stack direction="row" spacing={4} align="center">
+                                    <VStack direction="row" spacing={4} align="center">
                                         <Button colorScheme="teal" variant="outline" onClick={goUpload}>อัปโหลด</Button>
                                         
                                         <Button colorScheme="teal" variant="outline" onClick={goStorage}>คลังสรุป</Button>
                                         <Button colorScheme="teal" variant="outline" onClick={goShop}>ร้านค้า</Button>
                                         <Button colorScheme="teal" variant="outline" onClick={logout}>ออกจากระบบ</Button>
-                                    </Stack>
+                                    </VStack>
                                 </Center>
 
                             </DrawerHeader>
