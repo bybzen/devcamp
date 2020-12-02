@@ -28,7 +28,7 @@ function UploadList({authCode}){
 
     return(
         <div>
-            <p>Upload</p>
+            
             {uploadList.subject_code.map((key, index) => {
         return ( 
         <li key={index}>{`subject code : ${key}`} Subject name : {uploadList.data[key].name} link : 

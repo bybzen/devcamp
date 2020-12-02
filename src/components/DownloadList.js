@@ -27,11 +27,12 @@ function DownloadList(){
 
     return(
         <div>
-            <p>Download</p>
+            
             {downloadList.subject_code.map((key, index) => {
         return ( 
         <li key={index}>{`subject code : ${key}`} Subject name : {downloadList.data[key].name}link : 
-        <a className='download' onClick={() => window.location.href  = downloadList.data[key].fileUrl}>download</a>
+        <br></br>
+        <a className='select_button' onClick={() => window.location.href  = downloadList.data[key].fileUrl}>download</a>
         </li>)
         })
 
