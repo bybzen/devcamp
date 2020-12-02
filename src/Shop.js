@@ -2,8 +2,10 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './components/Navbar';
 import { db } from './firebase'
 import { useHistory } from 'react-router-dom';
-import { List, ListItem, ListIcon, OrderedList} from "@chakra-ui/react"
+import { List, ListItem, ListIcon, OrderedList } from "@chakra-ui/react"
 // import './css/App.css'
+import { Box, Image, Center } from "@chakra-ui/react"
+import { AspectRatio } from "@chakra-ui/react"
 
 
 const Shop = () => {
@@ -37,6 +39,7 @@ const Shop = () => {
         history.replace('/account')
     }
 
+
     return (
         <div>
             <Navbar />
@@ -47,30 +50,54 @@ const Shop = () => {
 
                 return (
                     <>
+                    <div>
+                        <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" align="center" pt="5">
+                            <AspectRatio maxW="200px" ratio={1}>
+                                    <Image src={alldata.data[key].imgUrl} onClick={() => toItem(key)} />
+                            </AspectRatio>
+                            
+                            <Box p="6">
+                                <Box d="flex" alignItems="baseline">
+
+                                    <Box
+                                        color="gray.500"
+                                        fontWeight="semibold"
+                                        letterSpacing="wide"
+                                        fontSize="xs"
+                                        textTransform="uppercase"
+                                        ml="2"
+                                    >
+                                    </Box>
+                                </Box>
+
+                                <Box
+                                    mt="1"
+                                    fontWeight="semibold"
+                                    as="h4"
+                                    lineHeight="tight"
+                                    isTruncated
+                                >
+                                   {alldata.data[key].subjectCode}<br></br> {alldata.data[key].name}
+                                </Box>
+
+                                <Box>
+                                    <Box as="span" color="gray.600" fontSize="sm">
+                                      50  บาท
+                                    </Box>
+                                </Box>
+                            </Box>
+                        </Box>
+                    </div>
+
                         <br></br>
 
-                        {/* <OrderedList>
-                            <ListItem>{`subject code : ${key}`} {`subject name : ${alldata.data[key].name}`}</ListItem>
-                            <ListItem>Consectetur adipiscing elit</ListItem>
-                            <ListItem>Integer molestie lorem at massa</ListItem>
-                            <ListItem>Facilisis in pretium nisl aliquet</ListItem>
-                        </OrderedList> */}
 
-
-                        <ol>
-                            <li><img src={alldata.data[key].imgUrl} height="20" width="100" /> {`subject code : ${key}`} {`subject name : ${alldata.data[key].name}`}
-                                <br></br>
-                                <a className='download' onClick={() => toItem(key)}>detail</a>
-                            </li>
-                        </ol>
-                        
                     </>
                 )
             })}
-
-            {/* <button className="select_button" onClick={goBack}>back</button>
-            <button className="select_button" onClick={}>show</button> */}
-            <button className="cancel" onClick={goBack}>back</button>
+        <div align="center">
+            <button className="cancel1" onClick={goBack}>ย้อนกลับ</button>
+            </div>
         </div>
 
 

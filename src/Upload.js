@@ -140,10 +140,14 @@ const Upload = () => {
 
             <br></br>
 
-            <button className="cancel" id="file_upload" onClick={Upload} >อัปโหลด</button>
+            <div align="center">
+                <button className="cancel1" id="file_upload" onClick={Upload}>อัปโหลด</button>
 
 
-            <button className="cancel" onClick={Back}>ยกเลิก</button>
+                <button className="cancel2" onClick={Back}  >ยกเลิก</button>
+
+            </div>
+
         </div>
     )
 }
