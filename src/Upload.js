@@ -8,7 +8,8 @@ import {
     FormLabel,
     FormErrorMessage,
     FormHelperText,
-    Input,Textarea
+    Input, Textarea
+    , Box
 } from "@chakra-ui/react"
 
 import './css/App.css'
@@ -102,40 +103,45 @@ const Upload = () => {
             <Navbar />
             <br></br>
 
-            {/* <div class="container-sm"></div> */}
-
             <FormControl id="subject-Code">
                 <FormLabel className="text1"> รหัสวิชา</FormLabel>
-                <Input className="inputBox2" placeholder="ระบุรหัสวิชา" type='text' onChange={subjectCode} />
+                <Box ml="20px" width="300px">
+                    <Input className="inputBox2" placeholder="ระบุรหัสวิชา" type='text' onChange={subjectCode} />
+                </Box>
             </FormControl>
 
-            {/* <p>subject Code</p>
-            <input type='text' onChange={subjectCode} ></input> */}
             <br></br>
 
             <FormControl id="subject-Name">
                 <FormLabel className="text1"> ชื่อวิชา</FormLabel>
-                <Input className="inputBox2" placeholder="ระบุชื่อวิชา" type='text' onChange={subjectName} />
+                <Box ml="20px" width="300px">
+                    <Input placeholder="ระบุชื่อวิชา" type='text' onChange={subjectName} />
+                </Box>
             </FormControl>
+            
             <br></br>
 
             <FormControl id="subject-Code">
                 <FormLabel className="text1"> รายละเอียด</FormLabel>
 
                 {/* <Input className="inputBox2" placeholder="รายละเอียด" type='text' onChange={_description} /> */}
-                
-                <Textarea placeholder="รายละเอียด" type='text' onChange={_description} />
+
+
+                <Box ml="20px" width="300px">
+                    <Textarea placeholder="รายละเอียด" type='text' onChange={_description} />
+                    {/* <Input className="inputBox2" placeholder="รายละเอียด" type='text' onChange={_description} /> */}
+                </Box>
             </FormControl>
 
             <br></br>
 
             <FormLabel className="text1"> เลือกรูปหน้าปก</FormLabel>
-            <input type="file" onChange={UpImage} />
+            <input style={{ paddingLeft: "2rem" }} type="file" onChange={UpImage} />
 
             <br></br><br></br>
 
             <FormLabel className="text1">อัปโหลดไฟล์</FormLabel>
-            <input type="file" id="file_choose" onChange={Choose} />
+            <input style={{ paddingLeft: "2rem" }} type="file" id="file_choose" onChange={Choose} />
 
             {/* <input type="file" id="file_choose" onChange={Choose}/> */}
             {/* <br></br><br></br> */}
@@ -143,7 +149,6 @@ const Upload = () => {
 
 
             <br></br>
-
             <div align="center">
                 <button className="cancel1" id="file_upload" onClick={Upload}>อัปโหลด</button>
 

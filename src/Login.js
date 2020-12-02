@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Center, Container } from '@chakra-ui/react'
 import { auth } from './firebase'
 import { useHistory } from 'react-router-dom';
 import Navbar from './components/Navbar'
@@ -51,9 +52,12 @@ const Login = () => {
 
         <form onSubmit={onSubmit}>
           
-            <legend class="box">
-              <p class="text2"><h3>เข้าสู่ระบบ</h3></p>
-            </legend>
+            <Container>
+              <Center>
+                <p class="text2"><h3>เข้าสู่ระบบ</h3></p>
+              </Center>
+              
+            </Container>
 
             <p class="text1">อีเมล<input class="inputBox"
 

@@ -36,7 +36,7 @@ function DownloadList() {
                         ชื่อวิชา : {downloadList.data[key].name}
         
                             <br></br>
-                            <a className="dowload_black" lassName='dowload2' onClick={() => window.location.href = downloadList.data[key].fileUrl}>ดาวน์โหลด</a>
+                            <a className="download" lassName='dowload2' onClick={() => window.location.href = downloadList.data[key].fileUrl}>ดาวน์โหลด</a>
                         </li>
                         <hr></hr></>
                     )

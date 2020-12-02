@@ -9,11 +9,28 @@ import {
     MenuList,
     MenuItem,
     MenuItemOption,
+    useDisclosure,
     MenuGroup,
     MenuOptionGroup,
     MenuIcon,
     MenuCommand,
-    MenuDivider, Button
+    MenuDivider, Button, Stack, Center,
+    Drawer,
+    DrawerBody,
+    DrawerFooter,
+    DrawerHeader,
+    DrawerOverlay,
+    DrawerContent,
+    DrawerCloseButton,
+} from "@chakra-ui/react"
+
+import {
+    FormControl,
+    FormLabel,
+    FormErrorMessage,
+    FormHelperText,
+    Input,
+    Box, Image, AspectRatio
 } from "@chakra-ui/react"
 
 
@@ -59,44 +76,122 @@ const Profile = () => {
         history.replace('/shop')
     }
 
+    const [size, setSize] = React.useState("md")
+    const { isOpen, onOpen, onClose } = useDisclosure()
+
+    const handleClick = (newSize) => {
+        setSize(newSize)
+        onOpen()
+    }
+
+    const sizes = ["xs"]
+
 
     return (
         <>
             <div>
                 <Navbar />
 
-                <Menu>
-                    <MenuButton  as={Button} bg="#F6AD55" >
+                {/* <Menu>
+                    <MenuButton as={Button} bg="#F6AD55" >
                         Menu
                 </MenuButton>
+
                     <MenuList>
                         <MenuGroup>
-                        <MenuItem onClick={goStorage} > คลังสรุป </MenuItem>
+
+                            <MenuItem onClick={goStorage} > คลังสรุป </MenuItem>
                             <MenuItem onClick={goUpload} > อัปโหลด</MenuItem>
-                            
+
                             <MenuItem onClick={goShop} > ร้านค้า </MenuItem>
                             <MenuItem onClick={logout} > ออกจากระบบ </MenuItem>
+
                         </MenuGroup>
                         <MenuDivider />
 
                     </MenuList>
-                </Menu>
+                </Menu> */}
 
-                <div>
+                {/* <div>
                     <p className="">uid : {user.uid}</p>
                     <p>name : {user.name}</p>
                     <p>email : {user.email}</p>
                     <p>qr_bank : {user.qr_bank}</p>
-                </div>
-                <button className="select_button" onClick={goUpload}>UPLOAD</button>
-                <button className="select_button" onClick={goStorage}>STORAGE</button>
-                <button className="select_button" onClick={goShop}>SHOP</button>
-                <button className="select_button" onClick={logout}>LOGOUT</button>
+                </div> */}
+
+                <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" align="center" pt="5">
+
+                    {/* <AspectRatio maxW="200px" ratio={1}>  ******ใส่รูป*******
+                    <Image src={detail.imgUrl} />
+                </AspectRatio> */}
+
+                    <Box p="6">
+                        <Box d="flex" alignItems="baseline">
+
+                            <Box
+                                color="gray.900"
+                                fontWeight="semibold"
+                                letterSpacing="wide"
+                                fontSize="xs"
+                                textTransform="uppercase"
+                                ml="2"
+                                
+                            >
+                            </Box>
+                        </Box>
+
+                        <Box
+                            mt="1"
+                            fontWeight="semibold"
+                            as="h4"
+                            lineHeight="tight"
+                            isTruncated
+
+                        >
+                            <FormLabel className="text1" bg="yellow" > ชื่อ :  {user.name} </FormLabel>
+                            <FormLabel className="text1"> อีเมล :  {user.email} </FormLabel>
+                            
+                        </Box>
+
+                    </Box>
+                </Box>
+
+                {sizes.map((size) => (
+                    <Button
+                        onClick={() => handleClick(size)}
+                        key={size}
+                        m={4}
+                    >{`เมนู`}</Button>
+                ))}
+
+                <Drawer onClose={onClose} isOpen={isOpen} size={size}>
+                    <DrawerOverlay>
+                        <DrawerContent>
+                            <DrawerHeader>
+                                <Center py={3}>
+                                    <Stack direction="row" spacing={4} align="center">
+                                        <Button colorScheme="teal" variant="outline" onClick={goUpload}>อัปโหลด</Button>
+                                        
+                                        <Button colorScheme="teal" variant="outline" onClick={goStorage}>คลังสรุป</Button>
+                                        <Button colorScheme="teal" variant="outline" onClick={goShop}>ร้านค้า</Button>
+                                        <Button colorScheme="teal" variant="outline" onClick={logout}>ออกจากระบบ</Button>
+                                    </Stack>
+                                </Center>
+
+                            </DrawerHeader>
+                            <DrawerBody>
+                                {size === "full"
+                                    ? `You're trapped 😆 , refresh the page to leave or press 'Esc' key.`
+                                    : null}
+                            </DrawerBody>
+                        </DrawerContent>
+                    </DrawerOverlay>
+                </Drawer>
+
+
             </div>
 
-            
 
-        
 
         </>
     )

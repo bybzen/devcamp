@@ -61,7 +61,7 @@ const ProductDetail = () => {
     return (
         <div>
             <Navbar />
-           
+
             <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" align="center" pt="5">
                 <AspectRatio maxW="200px" ratio={1}>
                     <Image src={detail.imgUrl} />
@@ -88,33 +88,29 @@ const ProductDetail = () => {
                         lineHeight="tight"
                         isTruncated
                     >
-                        {/* {detail.name}<br></br> 
-                        {detail.subjectCode}<br></br>
-                        {detail.description}<br></br>
-                        {detail.author} */}
-
                         <FormLabel className="text1"> ชื่อวิชา :  {detail.name} </FormLabel>
                         <FormLabel className="text1"> รหัสวิชา :  {detail.subjectCode} </FormLabel>
-                        
+
                         <FormLabel className="text1"> ผู้เขียน :  {detail.author} </FormLabel>
                         <FormLabel className="text1"> รายละเอียด :  {detail.description} </FormLabel>
-                        <FormLabel className="text1"> รายละเอียด :  {detail.description} </FormLabel>
-
 
 
                     </Box>
 
-                   
+
                 </Box>
             </Box>
 
 
+            <br></br>
             <div align="center">
-                <button className="cancel1" onClick={() => goBuy(productID)}>BUY</button>
+                <strong className="price" > 50 บาท</strong>
+            </div>
 
+            <div align="center">
+                <button className="cancel1" onClick={() => goBuy(productID)}>ซื้อสินค้า</button>
 
-
-                <button className="cancel2" onClick={goBack}>BACK</button>
+                <button className="cancel2" onClick={goBack}>ย้อนกลับ</button>
             </div>
 
         </div>
