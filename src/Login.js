@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import {auth} from './firebase'
+import { auth } from './firebase'
 import { useHistory } from 'react-router-dom';
 import Navbar from './components/Navbar'
+import './css/App.css'
 
 
 const Login = () => {
@@ -25,43 +26,66 @@ const Login = () => {
     const { email, password } = state
     auth.signInWithEmailAndPassword(email, password)
       .then(response => {
-        history.replace('/profile')
+        history.replace('/account')
       })
       .catch(error => {
         alert('Error in login', error)
       })
   }
 
-  useEffect(()=>{
-    auth.onAuthStateChanged(function(currentUser) {
+  useEffect(() => {
+    auth.onAuthStateChanged(function (currentUser) {
       if (currentUser) {
-        history.replace('/profile')
+        history.replace('/account')
       }
     })
   })
 
   return (
-    <div>
-      <Navbar />
-      <form onSubmit={onSubmit}>
-        <p> login  </p>
-        <p> Email <input
-          type="email"
-          name="email"
-          onChange={onChange}
-        />    </p>
+    <>
 
-        <p> Password <input
-          type="password"
-          name="password"
-          onChange={onChange}
-        />  </p>
+      <div>
 
-        <p></p>
-        <button type='submit'>LOGIN</button>
-      </form>
+        <Navbar />
 
-    </div>
+
+        <form onSubmit={onSubmit}>
+          {/* <fieldset> */}
+            <legend>
+              <p class="text2"><h3>เข้าสู่ระบบ</h3></p>
+            </legend>
+
+            <p class="text1">อีเมล<input class="inputBox"
+
+              type="email"
+              name="email"
+              onChange={onChange}
+            />    </p>
+
+            <p class="text1">รหัสผ่าน <input class="inputBox"
+              type="password"
+              name="password"
+              onChange={onChange}
+            />  </p>
+
+            <p></p>
+
+
+          
+            {/* <button type="button" class="button">สมัครสมาชิก</button> */}
+
+          {/* </fieldset> */}
+
+          <br></br>
+          <button type="submit" className="button">เข้าสู่ระบบ</button>
+
+          
+
+        </form>
+
+      </div>
+
+    </>
 
   );
 

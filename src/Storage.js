@@ -12,29 +12,14 @@ const Storage = () =>{
    
     const history = useHistory()
     function goback(){
-        history.replace('/profile')
+        history.replace('/account')
     }
 
     return(
         <div>
-            <button onClick={goback}>BACK</button>
-            <div>
-                <div className="container-sm">
-                    <div class="col-sm-6" style="width: 50%;">
-                        <div className="row"></div>
-                    </div>
-                            <div className="row subjectDetial" style={{ backgroundColor: 'black' }}>
-                                <div>
-                                    <Upp/>
-                                </div>
-                                <div>   
-                                    <Dww/>
-                                </div>
-                            </div>
-                    
-                </div>
-            </div>
-            
+            <Upp/>
+            <Dww/>
+            <button className="cancel" onClick={goback}>BACK</button>
         </div>
     )
 }
