@@ -202,6 +202,13 @@ body {
     
 }
 
+.text0 {
+    /* font-family: 'Kanit', sans-serif; */
+    /* font-size: 30px; */
+    padding-left: 10px;
+    padding-right: 20px;
+}
+
 .text1 {
     font-family: 'Kanit', sans-serif;
     font-size: 30px;

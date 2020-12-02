@@ -102,15 +102,15 @@ const ProductDetail = () => {
 
                         <Box
                             mt="1"
-                            fontWeight="semibold"
+                            fontWeight="'Kanit', sans-serif"
                             as="h4"
                             lineHeight="tight"
-                            isTruncated
+                            
                         >
                             <FormLabel className="text1"> ชื่อวิชา :  {detail.name} </FormLabel>
                             <FormLabel className="text1"> รหัสวิชา :  {detail.subjectCode} </FormLabel>
                             <FormLabel className="text1"> ผู้เขียน :  {detail.author} </FormLabel>
-                            <FormLabel className="text1"> รายละเอียด :  {detail.description} </FormLabel>
+                            <FormLabel className="text0" fontFamily="'Kanit', sans-serif" > รายละเอียด :  {detail.description} </FormLabel>
                             <FormLabel className="text1"> วันที่อัปโหลด : 02/12/2020  </FormLabel>
                             <Box d="flex" mt="2" alignItems="center" ml="3">
                                 {Array(5)
