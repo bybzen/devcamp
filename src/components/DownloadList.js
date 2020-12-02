@@ -31,10 +31,12 @@ function DownloadList() {
 
                 {downloadList.subject_code.map((key, index) => {
                     return (<>
-                        <li key={index}>{`subject code : ${key}`} Subject name : {downloadList.data[key].name}link :
-
+                        <li key={index}>{`รหัสวิชา : ${key}`} 
+                        <br></br>
+                        ชื่อวิชา : {downloadList.data[key].name}
+        
                             <br></br>
-                            <a className='select_button' onClick={() => window.location.href = downloadList.data[key].fileUrl}>download</a>
+                            <a className="dowload_black" lassName='dowload2' onClick={() => window.location.href = downloadList.data[key].fileUrl}>ดาวน์โหลด</a>
                         </li>
                         <hr></hr></>
                     )

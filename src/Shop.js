@@ -60,7 +60,7 @@ const Shop = () => {
                                 <Box d="flex" alignItems="baseline">
 
                                     <Box
-                                        color="gray.500"
+                                        color="gray.900"
                                         fontWeight="semibold"
                                         letterSpacing="wide"
                                         fontSize="xs"

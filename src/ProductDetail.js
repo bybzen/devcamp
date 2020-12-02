@@ -7,7 +7,8 @@ import {
     FormLabel,
     FormErrorMessage,
     FormHelperText,
-    Input
+    Input,
+    Box, Image, AspectRatio
 } from "@chakra-ui/react"
 
 const ProductDetail = () => {
@@ -60,26 +61,58 @@ const ProductDetail = () => {
     return (
         <div>
             <Navbar />
-            <img src={detail.imgUrl} alt="item_detail_img" width="100" height="100"></img>
+           
+            <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" align="center" pt="5">
+                <AspectRatio maxW="200px" ratio={1}>
+                    <Image src={detail.imgUrl} />
+                </AspectRatio>
 
-            <FormLabel className="text1"> รหัสวิชา :  {detail.subjectCode} </FormLabel>
-            <FormLabel className="text1"> ชื่อวิชา :  {detail.name} </FormLabel>
-            <FormLabel className="text1"> โดย :  {detail.author} </FormLabel>
-            <FormLabel className="text1"> รายละเอียด :  {detail.description} </FormLabel>
+                <Box p="6">
+                    <Box d="flex" alignItems="baseline">
+
+                        <Box
+                            color="gray.900"
+                            fontWeight="semibold"
+                            letterSpacing="wide"
+                            fontSize="xs"
+                            textTransform="uppercase"
+                            ml="2"
+                        >
+                        </Box>
+                    </Box>
+
+                    <Box
+                        mt="1"
+                        fontWeight="semibold"
+                        as="h4"
+                        lineHeight="tight"
+                        isTruncated
+                    >
+                        {/* {detail.name}<br></br> 
+                        {detail.subjectCode}<br></br>
+                        {detail.description}<br></br>
+                        {detail.author} */}
+
+                        <FormLabel className="text1"> ชื่อวิชา :  {detail.name} </FormLabel>
+                        <FormLabel className="text1"> รหัสวิชา :  {detail.subjectCode} </FormLabel>
+                        
+                        <FormLabel className="text1"> ผู้เขียน :  {detail.author} </FormLabel>
+                        <FormLabel className="text1"> รายละเอียด :  {detail.description} </FormLabel>
+                        <FormLabel className="text1"> รายละเอียด :  {detail.description} </FormLabel>
 
 
 
+                    </Box>
 
-            {/* <p>Subject code {detail.subjectCode} </p>
-            <p>Subject name {detail.name}</p>
-            <p>Author {detail.author}</p>
-            <p>Description {detail.description}</p> */}
+                   
+                </Box>
+            </Box>
 
 
             <div align="center">
                 <button className="cancel1" onClick={() => goBuy(productID)}>BUY</button>
 
-                
+
 
                 <button className="cancel2" onClick={goBack}>BACK</button>
             </div>

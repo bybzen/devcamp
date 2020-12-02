@@ -8,8 +8,9 @@ import {
     FormLabel,
     FormErrorMessage,
     FormHelperText,
-    Input
+    Input,Textarea
 } from "@chakra-ui/react"
+
 import './css/App.css'
 
 const Upload = () => {
@@ -120,7 +121,10 @@ const Upload = () => {
 
             <FormControl id="subject-Code">
                 <FormLabel className="text1"> รายละเอียด</FormLabel>
-                <Input className="inputBox2" placeholder="รายละเอียด" type='text' onChange={_description} />
+
+                {/* <Input className="inputBox2" placeholder="รายละเอียด" type='text' onChange={_description} /> */}
+                
+                <Textarea placeholder="รายละเอียด" type='text' onChange={_description} />
             </FormControl>
 
             <br></br>
@@ -144,7 +148,7 @@ const Upload = () => {
                 <button className="cancel1" id="file_upload" onClick={Upload}>อัปโหลด</button>
 
 
-                <button className="cancel2" onClick={Back}  >ยกเลิก</button>
+                <button className="cancel2" onClick={Back}>ย้อนกลับ</button>
 
             </div>
 

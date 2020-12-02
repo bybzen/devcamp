@@ -34,10 +34,13 @@ function UploadList({ authCode }) {
                     return (
                         <>
 
-                            <li key={index}>{`subject code : ${key}`} Subject name : {uploadList.data[key].name} link :
+                            <li key={index}>{`รหัสวิชา : ${key}`} 
+                            <br></br>
+                             ชื่อวิชา : {uploadList.data[key].name} 
+
 
                             <br></br>
-                                <a className='download' onClick={() => window.location.href = uploadList.data[key].fileUrl}>download</a>
+                                <a className='download' onClick={() => window.location.href = uploadList.data[key].fileUrl}>ดาวน์โหลด</a>
                             </li>
                             <hr></hr></>)
                 })

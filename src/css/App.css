@@ -123,6 +123,27 @@ body {
     color: white;
 }
 
+.dowload_black {
+    background-color: #1c1c1c;
+    color: white;
+    border-radius: 7px;
+    font-size: 15px;
+    width: 120px;
+    height: 60px;
+    text-align: center;
+    padding: 16px 27px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 50px 20px 25px;
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+}
+
+.dowload_black:hover {
+    background-color: #555555;
+    color: white;
+}
+
 .textTopic {
     font-size: 50px;
     font-weight: bold;
