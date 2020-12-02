@@ -21,7 +21,7 @@ import {
     DrawerHeader,
     DrawerOverlay,
     DrawerContent,
-    DrawerCloseButton,
+    DrawerCloseButton, Badge,
     VStack
 } from "@chakra-ui/react"
 
@@ -93,33 +93,6 @@ const Profile = () => {
             <div>
                 <Navbar />
 
-                {/* <Menu>
-                    <MenuButton as={Button} bg="#F6AD55" >
-                        Menu
-                </MenuButton>
-
-                    <MenuList>
-                        <MenuGroup>
-
-                            <MenuItem onClick={goStorage} > คลังสรุป </MenuItem>
-                            <MenuItem onClick={goUpload} > อัปโหลด</MenuItem>
-
-                            <MenuItem onClick={goShop} > ร้านค้า </MenuItem>
-                            <MenuItem onClick={logout} > ออกจากระบบ </MenuItem>
-
-                        </MenuGroup>
-                        <MenuDivider />
-
-                    </MenuList>
-                </Menu> */}
-
-                {/* <div>
-                    <p className="">uid : {user.uid}</p>
-                    <p>name : {user.name}</p>
-                    <p>email : {user.email}</p>
-                    <p>qr_bank : {user.qr_bank}</p>
-                </div> */}
-
                 <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden" align="center" pt="5">
 
                     {/* <AspectRatio maxW="200px" ratio={1}>  ******ใส่รูป*******
@@ -136,7 +109,7 @@ const Profile = () => {
                                 fontSize="xs"
                                 textTransform="uppercase"
                                 ml="2"
-                                
+
                             >
                             </Box>
                         </Box>
@@ -151,7 +124,7 @@ const Profile = () => {
                         >
                             <FormLabel className="text1" bg="yellow" > ชื่อ :  {user.name} </FormLabel>
                             <FormLabel className="text1"> อีเมล :  {user.email} </FormLabel>
-                            
+
                         </Box>
 
                     </Box>
@@ -162,7 +135,9 @@ const Profile = () => {
                         onClick={() => handleClick(size)}
                         key={size}
                         m={4}
-                    >{`เมนู`}</Button>
+                    >
+                        เมนู
+                    </Button>
                 ))}
 
                 <Drawer onClose={onClose} isOpen={isOpen} size={size}>
@@ -171,11 +146,13 @@ const Profile = () => {
                             <DrawerHeader>
                                 <Center py={3}>
                                     <VStack direction="row" spacing={4} align="center">
+
                                         <Button colorScheme="teal" variant="outline" onClick={goUpload}>อัปโหลด</Button>
-                                        
                                         <Button colorScheme="teal" variant="outline" onClick={goStorage}>คลังสรุป</Button>
                                         <Button colorScheme="teal" variant="outline" onClick={goShop}>ร้านค้า</Button>
                                         <Button colorScheme="teal" variant="outline" onClick={logout}>ออกจากระบบ</Button>
+
+
                                     </VStack>
                                 </Center>
 
