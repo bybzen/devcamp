@@ -96,6 +96,48 @@ body {
     color: white;
 }
 
+.cancel1 {
+    background-color: #1c1c1c;
+    color: white;
+    border-radius: 7px;
+    font-size: 15px;
+    width: 120px;
+    height: 60px;
+    text-align: center;
+    padding: 16px 32px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 50px 6px 25px;
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+}
+
+.cancel1:hover {
+    background-color: #555555;
+    color: white;
+}
+
+.cancel2 {
+    background-color: #1c1c1c;
+    color: white;
+    border-radius: 7px;
+    font-size: 15px;
+    width: 120px;
+    height: 60px;
+    text-align: center;
+    padding: 16px 32px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 50px 20px 25px;
+    cursor: pointer;
+    font-family: 'Kanit', sans-serif;
+}
+
+.cancel2:hover {
+    background-color: #555555;
+    color: white;
+}
+
 .textTopic {
     font-size: 50px;
     font-weight: bold;

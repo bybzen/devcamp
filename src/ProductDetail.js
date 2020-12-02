@@ -17,7 +17,7 @@ const ProductDetail = () => {
 
     const history = useHistory()
 
-    const[detail,setDetail] = useState({
+    const [detail, setDetail] = useState({
         name: '',
         subjectCode: '',
         author: '',
@@ -30,7 +30,7 @@ const ProductDetail = () => {
         db.ref(`/file/${productID}`).once('value', snapshot => {
             const data = snapshot.val()
             console.log(data)
-            if(data){
+            if (data) {
                 setDetail({
                     name: data.name,
                     subjectCode: data.subjectCode,
@@ -44,22 +44,22 @@ const ProductDetail = () => {
     }
 
 
-    useEffect(()=> {
+    useEffect(() => {
         fetchDetail()
-    },[])
+    }, [])
 
-    function goBack(){
+    function goBack() {
         history.replace('/shop')
     }
 
-    function goBuy(productID){
+    function goBuy(productID) {
         history.replace(`/shop/${productID}/buy`)
     }
 
     console.log(detail.imgUrl)
-    return(
+    return (
         <div>
-            <Navbar/>
+            <Navbar />
             <img src={detail.imgUrl} alt="item_detail_img" width="100" height="100"></img>
 
             <FormLabel className="text1"> รหัสวิชา :  {detail.subjectCode} </FormLabel>
@@ -75,13 +75,15 @@ const ProductDetail = () => {
             <p>Author {detail.author}</p>
             <p>Description {detail.description}</p> */}
 
-            
-            <button className="cancel" onClick={() => goBuy(productID)}>BUY</button>
-            
-            <br></br>
 
-            <button className="cancel" onClick={goBack}>BACK</button>
-            
+            <div align="center">
+                <button className="cancel1" onClick={() => goBuy(productID)}>BUY</button>
+
+                
+
+                <button className="cancel2" onClick={goBack}>BACK</button>
+            </div>
+
         </div>
     )
 
