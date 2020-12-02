@@ -66,7 +66,7 @@ const Profile = () => {
                 <Navbar />
 
                 <Menu>
-                    <MenuButton  as={Button} bg="#A0AEC0" >
+                    <MenuButton  as={Button} bg="#F6AD55" >
                         Menu
                 </MenuButton>
                     <MenuList>

@@ -1,11 +1,11 @@
-import React,{ useEffect, useState } from 'react'
-import {db} from './../firebase'
+import React, { useEffect, useState } from 'react'
+import { db } from './../firebase'
 import './../App.css'
 
-function UploadList({authCode}){
+function UploadList({ authCode }) {
 
-    const[uploadList,setUploadList] = useState({
-        subject_code:[]
+    const [uploadList, setUploadList] = useState({
+        subject_code: []
     })
 
     const fetchUpload = async () => {
@@ -13,7 +13,7 @@ function UploadList({authCode}){
         db.ref(`/users/${uid}/upload/`).on('value', snapshot => {
             const data = snapshot.val()
             console.log(data)
-            if(data){
+            if (data) {
                 setUploadList({
                     subject_code: Object.keys(data),
                     data: data
@@ -22,24 +22,31 @@ function UploadList({authCode}){
         })
     }
 
-    useEffect(()=> {
+    useEffect(() => {
         fetchUpload()
-    },db.ref(`/users/${localStorage.getItem('uid')}/upload/`))
+    }, db.ref(`/users/${localStorage.getItem('uid')}/upload/`))
 
-    return(
-        <div>
-            
-            {uploadList.subject_code.map((key, index) => {
-        return ( 
-        <li key={index}>{`subject code : ${key}`} Subject name : {uploadList.data[key].name} link : 
-        <a className='download' onClick={() => window.location.href  = uploadList.data[key].fileUrl}>download</a>
-        </li>)
-        })
+    return (
+        <>
+            <div>
 
-            }   
-        </div>
+                {uploadList.subject_code.map((key, index) => {
+                    return (
+                        <>
+
+                            <li key={index}>{`subject code : ${key}`} Subject name : {uploadList.data[key].name} link :
+
+                            <br></br>
+                                <a className='download' onClick={() => window.location.href = uploadList.data[key].fileUrl}>download</a>
+                            </li>
+                            <hr></hr></>)
+                })
+                }
+            </div>
+
+        </>
     )
-    
+
 }
 
 export default UploadList

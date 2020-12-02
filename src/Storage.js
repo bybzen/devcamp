@@ -31,12 +31,15 @@ const Storage = () => {
                     <TabPanel>
 
                     <Upp />
+
+                    {/* <hr></hr> */}
                         
 
                     </TabPanel>
                     <TabPanel>
                         
                         <Dww />
+                        {/* <hr></hr> */}
                     </TabPanel>
                 </TabPanels>
             </Tabs>
