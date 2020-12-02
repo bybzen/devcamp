@@ -8,9 +8,14 @@ export default function Home() {
         <div>
             <Navbar />
             <body className="body">
-                <button type='button' className="button1">
+                <div className="container">
                     <Link to="/login" style={{textDecoration: "none", color: "white"}}>LOGIN</Link>
-                </button>
+                    <button type='button' className="button1">
+                    </button>
+                </div>
+                
+                   
+                
                 
                 <p></p>
                 <button type='button' className="button1">SUBMIT</button>

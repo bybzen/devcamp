@@ -6,6 +6,9 @@ import Dww from './components/DownloadList'
 
 const Storage = () =>{
 
+    const style ={
+        backgroundColor: "#e3e3e3",
+    }
    
     const history = useHistory()
     function goback(){
@@ -14,9 +17,24 @@ const Storage = () =>{
 
     return(
         <div>
-            <Upp/>
-            <Dww/>
             <button onClick={goback}>BACK</button>
+            <div>
+                <div className="container-sm">
+                    <div class="col-sm-6" style="width: 50%;">
+                        <div className="row"></div>
+                    </div>
+                            <div className="row subjectDetial" style={{ backgroundColor: 'black' }}>
+                                <div>
+                                    <Upp/>
+                                </div>
+                                <div>   
+                                    <Dww/>
+                                </div>
+                            </div>
+                    
+                </div>
+            </div>
+            
         </div>
     )
 }

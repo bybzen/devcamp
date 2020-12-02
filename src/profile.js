@@ -4,36 +4,37 @@ import { auth, db} from './firebase'
 import Navbar from './components/Navbar'
 
 const Profile = () => {
-    const [user,setUser] = useState({
-        name:'',
-        email:'',
-        uid:'',
-        qr_bank:''
+    const [user, setUser] = useState({
+        name: '',
+        email: '',
+        uid: '',
+        qr_bank: ''
     })
     const history = useHistory()
 
-    useEffect(()=>{
-        auth.onAuthStateChanged(function(currentUser) {
-          if (currentUser) {
-            console.log(currentUser)
-            db.ref('/users/'+auth.currentUser.uid).once('value').then((snapshot)=>{
-                setUser({
-                    name: snapshot.val().name,
-                    qr_bank: snapshot.val().qr_bank,
-                    email: snapshot.val().email,
-                    uid: auth.currentUser.uid
-                })
+    useEffect(() => {
+        auth.onAuthStateChanged(function (currentUser) {
+            if (currentUser) {
+                console.log(currentUser)
+                db.ref('/users/' + auth.currentUser.uid).once('value').then((snapshot) => {
+                    setUser({
+                        name: snapshot.val().name,
+                        qr_bank: snapshot.val().qr_bank,
+                        email: snapshot.val().email,
+                        uid: auth.currentUser.uid
+                    })
                 localStorage.setItem('uid', auth.currentUser.uid)
             })
-            }
+        }
         })
-    },[auth])
-    function logout(){
+    }, [auth])
+
+    function logout() {
         auth.signOut()
         history.replace('/')
     }
 
-    function goUpload(){
+    function goUpload() {
         history.replace('/profile/upload')
     }
 
@@ -60,7 +61,6 @@ const Profile = () => {
                 <button onClick={goStorage}>STORAGE</button>
                 <button onClick={goShop}>SHOP</button>
             </div>
-        )   
+        )
 }
-
- export default Profile
+export default Profile
