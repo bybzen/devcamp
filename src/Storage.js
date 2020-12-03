@@ -41,7 +41,7 @@ const Storage = () => {
                 </TabPanels>
             </Tabs>
 
-
+ 
             <div align="right">
                 <button className="cancel1" onClick={goback}>ย้อนกลับ</button>
             </div>

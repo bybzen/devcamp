@@ -40,7 +40,7 @@ function UploadList({ authCode }) {
 
 
                             <br></br>
-                                <a className='download' onClick={() => window.location.href = uploadList.data[key].fileUrl}>อัปโหลด</a>
+                                <a className='download' onClick={() => window.location.href = uploadList.data[key].fileUrl}>ดาวน์โหลด</a>
                             </li>
                             <hr></hr></>)
                 })
